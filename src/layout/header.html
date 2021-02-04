@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../dist/styles/styles.min.css" />
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../../dist/styles/styles.min.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container--purple"></div>
+      <div class="header__container--flex">
+        <img src="../assets/logo.svg" alt="Logo de GifOS" />
+        <nav class="header__nav">
+          <div class="header__menu">
+            <input class="header__input" type="checkbox" />
+            <span class="header__menu-img"></span>
+            <ul class="header__list">
+              <li class="header__item">
+                <a class="header__link" href="#">Modo Nocturno</a>
+                <div class="header__divider"></div>
+              </li>
+              <li class="header__item">
+                <a class="header__link" href="#">Favoritos</a>
+                <div class="header__divider"></div>
+              </li>
+              <li class="header__item">
+                <a class="header__link" href="#">Mis GIFOS</a>
+                <div class="header__divider"></div>
+              </li>
+              <li class="header__item">
+                <a class="header__link--plus" href="#">
+                  <div>
+                    <span></span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </body>
 </html>
