@@ -1,0 +1,131 @@
+.create-gifos {
+  width: 100%;
+  height: auto;
+  padding-top: 4px;
+  padding-bottom: 96px;
+
+  &__main-container {
+    width: 100%;
+  }
+
+  &__icon-camara {
+    display: flex;
+    position: absolute;
+    top: calc(65% - 130px);
+    left: calc(-27% - 61px);
+
+    .create-gifos__camara {
+      width: 123px;
+      height: 162px;
+    }
+
+    .create-gifos__light {
+      width: 91px;
+      height: 151px;
+      margin-left: 2px;
+      margin-top: 5px;
+    }
+  }
+
+  &__main {
+    margin: 0 auto;
+    position: relative;
+    padding-top: 134px;
+    padding-bottom: 127px;
+    width: 47%;
+    max-width: 680px;
+    height: auto;
+    border: 1px solid $purple;
+
+    h2 {
+      width: 220px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 3px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: $purple;
+      text-align: center;
+      line-height: 3.5rem;
+    }
+
+    p {
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: "Roboto", sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: $black;
+      text-align: center;
+      line-height: 2.8rem;
+    }
+  }
+
+  &__icon-movie {
+    width: 142px;
+    height: 88px;
+    position: absolute;
+    top: calc(106% - 44px);
+    left: calc(121% - 71px);
+  }
+
+  &__steps-container{
+    @include flex(row, center, center);
+    margin-top: 24px;
+    margin-bottom: 19px;
+  }
+
+  &__steps {
+    @include flex(row, center, center);
+    @extend %steps;
+    margin-right: 26px;
+
+    &--highlighted {
+      @include flex(row, center, center);
+      @extend %steps-highlighted;
+      margin-right: 26px;
+    }
+  }
+
+  &__purple-bar {
+    margin: 0 auto;
+    margin-bottom: 96px;
+    width: 795px;
+    height: 7px;
+    background-color: $purple;
+    border-radius: 10px;
+  }
+
+  .frames{
+    display: block;
+    width: 27px;
+    height: 25px;
+    border-top: 1px solid $blue;
+    border-left: 1px solid $blue;
+    position: absolute;
+  }
+
+  .create-gifos__first-frame{
+    top: 20px;
+    left:20px;
+  }
+
+  .create-gifos__second-frame{
+    transform: rotate(-270deg);
+    right: 20px;
+    top: 20px
+  }
+
+  .create-gifos__third-frame{
+    transform: rotate(-90deg);
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .create-gifos__last-frame{
+    transform: rotate(-180deg);
+    right: 20px;
+    bottom: 20px;
+  }
+}

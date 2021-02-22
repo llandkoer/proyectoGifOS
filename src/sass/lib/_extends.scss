@@ -37,3 +37,40 @@ height: 21px;
 %container-icon{
 
 }*/
+
+/*%input-create{
+  display: block;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  z-index: -999;
+  opacity: 0;
+}*/
+
+%steps{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid $purple;
+
+  span {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: $purple;
+  }
+}
+
+%steps-highlighted{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: $purple;
+
+  span {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: $white;
+  }
+}
