@@ -63,6 +63,7 @@
 
     .header__link--plus {
       display: none;
+
       div {
         display: flex;
         justify-content: center;
@@ -78,10 +79,33 @@
           display: block;
           width: 16px;
           height: 16px;
-          background-image: url("../../assets/icon-plus-purple.svg");
+          background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/22982f93488939531983f4b1d58df2d89c711825/src/assets/icon-plus-purple.svg");
           background-position: center;
           background-repeat: no-repeat;
           background-size: cover;
+          cursor: pointer;
+        }
+
+        &:hover {
+          border: none;
+          background-color: $purple;
+
+          span {
+            background-image: url("https://svgur.com/i/Un9.svg");
+            width: 16px;
+            height: 16px;
+          }
+        }
+
+        &:active {
+          border: none;
+          background-color: #979797;
+
+          span {
+            background-image: url("https://svgur.com/i/Un9.svg");
+            width: 16px;
+            height: 16px;
+          }
         }
       }
     }
@@ -105,7 +129,7 @@
       width: 15px;
       height: 14px;
       position: relative;
-      background-image: url("../../assets/icon-menu-header.svg"); //https://svgur.com/i/T_6.svg
+      background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/22982f93488939531983f4b1d58df2d89c711825/src/assets/icon-menu-header.svg");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -115,61 +139,80 @@
     .header__input:checked ~ .header__menu-img {
       width: 14px;
       height: 14px;
-      background-image: url("../../assets/icon-menu-header-x.svg"); //https://svgur.com/i/TaF.svg
+      background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/22982f93488939531983f4b1d58df2d89c711825/src/assets/icon-menu-header-x.svg");
     }
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .header__container--flex {
-    padding: 18px 156px;
+  .header {
+    //position: sticky;
+    //background: rgba(255, 255, 255, 0.5);
+    //box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55);
 
-    img {
-      width: 59.1px;
-      height: 59.1px;
-    }
+    .header__container--flex {
+      padding: 18px 156px;
 
-    .header__input {
-      display: none;
-    }
-
-    .header__list {
-      position: relative;
-      top: 0;
-      right: 0;
-      overflow: hidden;
-      background: unset;
-      height: unset;
-
-      li {
-        padding-left: 48px;
-        display: inline-block;
+      img {
+        width: 59.1px;
+        height: 59.1px;
       }
 
-      li:last-child {
-        padding-left: 60px;
-      }
+      .header__nav {
+        width: 80%;
+        .header__menu {
+          .header__input {
+            display: none;
+          }
 
-      .header__link--plus {
-        display: inline-block;
-      }
+          .header__menu-img {
+            display: none;
+          }
 
-      .header__link {
-        padding: unset;
-        color: $purple;
-        font-size: 1.3rem;
-        color: $purple;
-        letter-spacing: 0;
-        text-align: center;
-        text-transform: uppercase;
-      }
+          .header__list {
+            position: static;
+            background: $white;
+            height: 60px;
+            width: 100%;
+            @include flex(row, flex-end, center);
 
-      .header__divider {
-        display: none;
-      }
+            .header__item {
+              display: inline-block;
 
-      .header__menu-img {
-        display: none;
+              &:first-child {
+                margin-top: unset;
+                padding-right: 41.5px;
+              }
+
+              &:nth-child(2) {
+                padding-right: 50px;
+              }
+
+              &:nth-child(3) {
+                padding-right: 59.5px;
+              }
+
+              .header__link {
+                padding: unset;
+                color: $purple;
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: $purple;
+                letter-spacing: 0;
+                text-align: center;
+                text-transform: uppercase;
+              }
+
+              .header__link--plus {
+                display: inline-block;
+              }
+
+              .header__divider {
+                display: none;
+              }
+            }
+          }
+        }
       }
     }
   }
