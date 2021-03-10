@@ -1,0 +1,204 @@
+.favorites {
+  text-align: center;
+  .favorites__icon {
+    margin-top: 10px;
+    width: 23px;
+    height: 21px;
+  }
+  .favorites__h2 {
+    margin-bottom: 45px;
+    color: $purple;
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+  .favorites__father {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    .favorites__item {
+      max-width: 156px;
+      width: 45%;
+      height: 120px;
+      margin-bottom: 21px;
+      position: relative;
+
+      .favorites__img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+      }
+      .favorites__hover {
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        background: #572ee5;
+        opacity: 0.7;
+
+        display: none;
+      }
+      .favorites__icons {
+        width: 100%;
+
+        position: absolute;
+        top: 10px;
+
+        display: flex;
+        justify-content: flex-end;
+
+        .favorites__icon-container {
+          width: 32px;
+          height: 32px;
+
+          margin-right: 5px;
+
+          display: none;
+          justify-content: center;
+          align-items: center;
+
+          opacity: 0.7;
+          background: white;
+
+          border-radius: 6px;
+
+          &:first-child{
+            opacity: 1;
+          }
+
+          &:hover {
+            opacity: 1;
+          }
+
+          .favorites__icon--first,
+          .favorites__icon--second,
+          .favorites__icon--last {
+            width: 18px;
+            height: 15.9px;
+
+            display: block;
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+
+          .favorites__icon--first {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/9db17ee4ae4ba1e5482159a4b330e54fefa9540e/src/assets/icon-heart-full.svg");
+          }
+
+          .favorites__icon--second {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-download.svg");
+          }
+
+          .favorites__icon--last {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-max.svg");
+          }
+        }
+      }
+      .favorites__text {
+        // width: 100%;
+
+        display: none;
+
+        position: absolute;
+        top: 70px;
+
+        .favorites__p {
+          margin-left: -35px;
+          margin-bottom: 5px;
+
+          color: white;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.5rem;
+        }
+        .favorites__title {
+          margin-left: 13px;
+
+          color: white;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.6rem;
+        }
+      }
+
+      &:hover {
+        .favorites__text {
+          display: block;
+        }
+
+        .favorites__icon-container {
+          display: flex;
+        }
+
+        .favorites__hover {
+          display: block;
+        }
+      }
+    }
+  }
+  .favorites__button {
+    margin: 80px 0;
+    width: 130px;
+    height: 50px;
+    background: none;
+    border: 1px solid $purple;
+    border-radius: 25px;
+    color: $purple;
+
+    &:hover {
+      background: $purple;
+      color: $white;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .favorites {
+    .favorites__h2 {
+      font-size: 2.5rem;
+    }
+    .favorites__father {
+      .favorites__item {
+        max-width: 260px;
+        height: 200px;
+        .favorites__img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+        .favorites__hover {
+          width: 100%;
+          height: 100%;
+          .favorites__hover-icon {
+            margin-top: 10px;
+            height: 32px;
+            img {
+              margin-right: 10px;
+              padding: 5px;
+              border-radius: 5px;
+            }
+          }
+        }
+        .favorites__text {
+          top: 120px;
+          .favorites__p {
+            margin-right: 20px;
+            font-size: 1.5rem;
+            line-height: 1.8rem;
+          }
+          .favorites__title {
+            margin-right: 20px;
+            font-size: 1.6rem;
+            line-height: 1.9rem;
+          }
+        }
+      }
+    }
+  }
+}
