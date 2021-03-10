@@ -1,0 +1,55 @@
+.MisGifosWC {
+  text-align: center;
+  max-width: 100%;
+  overflow-x: hidden;
+  .MisGifosWC__icon {
+    margin-top: 10px;
+    width: 23px;
+    height: 21px;
+  }
+  h2 {
+    text-align: center;
+    margin-top: 85px;
+    margin-bottom: 110px;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    color: $purple;
+  }
+  .MisGifosWC__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    background-color: $gray-icons;
+    opacity: 0.6px;
+    border-radius: 80px;
+  }
+  p {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 150px;
+    font-size: 1.8rem;
+    line-height: 2.0rem;
+    color: $blue;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .MisGifosWC {
+    h2 {
+      font-size: 3.0rem;
+      line-height: 3.0rem;
+    }
+    .MisGifosWC__img {
+      width: 150px;
+      height: 150px;
+    }
+    p {
+      font-size: 2.2rem;
+      line-height: 2.5rem;
+    }
+  }
+}

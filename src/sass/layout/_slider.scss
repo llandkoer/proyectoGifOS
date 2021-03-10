@@ -1,0 +1,244 @@
+
+.slider {
+  width: 100%;
+
+  position: relative;
+  background: $white;
+  .slider__h2 {
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 10px;
+    color: $purple;
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .slider__p {
+    max-width: 170px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+    color: $black;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+  }
+  .slider__container {
+    white-space: nowrap;
+    width: 100%;
+    margin: 0 auto;
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .slider__arrow {
+      display: none;
+    }
+    .slider__item {
+      display: inline-block;
+      width: 375px;
+      height: 275px;
+      margin-right: 25px;
+      margin-left: 25px;
+
+      position: relative;
+
+      .slider__img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+      }
+      .slider__hover {
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        background: $purple;
+        opacity: 0.7;
+
+        display: none;
+      }
+      .slider__icons {
+        width: 100%;
+
+        position: absolute;
+        top: 10px;
+
+        display: flex;
+        justify-content: flex-end;
+
+        .slider__icon-container {
+          width: 32px;
+          height: 32px;
+
+          margin-right: 5px;
+
+          display: none;
+          justify-content: center;
+          align-items: center;
+
+          opacity: 0.7;
+          background: $white;
+
+          border-radius: 6px;
+
+          &:hover {
+            opacity: 1;
+          }
+
+          &:active{
+            opacity: 1;
+            .slider__icon--first{
+              background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart-full.svg");
+            }
+          }
+
+          .slider__icon--first,
+          .slider__icon--second,
+          .slider__icon--last {
+            width: 18px;
+            height: 15.9px;
+
+            display: block;
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+
+          .slider__icon--first {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart.svg");
+          }
+
+          .slider__icon--second {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-download.svg");
+          }
+
+          .slider__icon--last {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-max.svg");
+          }
+        }
+      }
+      .slider__text {
+        width: 100%;
+
+        display: none;
+
+        position: absolute;
+        top: 181px;
+
+        .slider__p {
+          margin-left: 13px;
+          margin-bottom: 5px;
+
+          color: $white;
+          font-family: 'Roboto', sans-serif;
+          font-size: 1.5rem;
+        }
+        .slider__title {
+          margin-left: 13px;
+
+          color: $white;
+          font-family: 'Roboto', sans-serif;
+          font-size: 1.6rem;
+          font-weight: bold;
+        }
+      }
+
+      &:hover {
+        .slider__text {
+          display: block;
+        }
+
+        .slider__icon-container {
+          display: flex;
+        }
+
+        .slider__hover {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .slider {
+    padding-bottom: 182px;
+    .slider__h2 {
+      margin-top: 67px;
+      margin-bottom: 12px;
+      font-size: 2.5rem;
+    }
+    .slider__p {
+      max-width: 400px;
+      font-size: 1.8rem;
+      line-height: 2.1rem;
+      margin-bottom: 53px;
+    }
+    .slider__container {
+      width: 90%;
+      display: flex;
+
+      justify-content: space-evenly;
+      align-items: center;
+      overflow: hidden;
+      .slider__arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        //margin-top: 72.5px;
+        //margin-right: 20px;
+        background-color: $white;
+        border: 1px solid $purple;
+
+        &:hover .arrow-left {
+          background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/22982f93488939531983f4b1d58df2d89c711825/src/assets/icon-left-white.svg");
+        }
+
+        &:hover .arrow-right {
+          background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/22982f93488939531983f4b1d58df2d89c711825/src/assets/icon-right-white.svg");
+        }
+
+        &:hover {
+          background-color: $purple;
+          border: none;
+        }
+        .arrow-left {
+          background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/22982f93488939531983f4b1d58df2d89c711825/src/assets/icon-left-purple.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          width: 8px;
+          height: 14px;
+        }
+        .arrow-right {
+          background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/22982f93488939531983f4b1d58df2d89c711825/src/assets/icon-right-purple.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          width: 8px;
+          height: 14px;
+        }
+      }
+      .slider-item {
+        .slider-item__hover {
+          .slider-item__hover--icon {
+            margin-top: 10px;
+            width: 100%;
+            height: 32px;
+            .icon-slider {
+              margin-right: 10px;
+              padding: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

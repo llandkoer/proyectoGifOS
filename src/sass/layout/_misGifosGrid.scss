@@ -11,66 +11,140 @@
     font-size: 2.0rem;
     line-height: 3.0rem;
   }
-  .MisGifos__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    grid-template-rows: repeat(4, 1fr);
-    justify-items: center;
-    align-items: center;
-    gap: 15px;
-    padding: 10px;
+  .MisGifos__father {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+  
     .MisGifos__item {
-      position: relative;
-      overflow: hidden;
-      width:140px;
-      height:120px;
+      max-width: 156px;
+      width: 45%;
+      height: 120px;
+      margin-bottom: 21px;
+      position: relative; 
+      
+    
       .MisGifos__img {
+        width: 100%;
+        height: 100%;
+    
         object-fit: cover;
-        width: 140px;
-        height: 120px;
       }
       .MisGifos__hover {
+        width: 100%;
+        height: 100%;
+    
         position: absolute;
         top: 0;
         left: 0;
-        width: 140px;
-        height: 120px;
-        background: $purple;
-        opacity: 0.6;
+    
+        background: #572ee5;
+        opacity: 0.7;
+    
         display: none;
-
-        .MisGifos__hover-icon {
-          display: flex;
-          justify-content: flex-end;
-          margin-top: 5px;
-          width: 100%;
-          height: 16px;
-          img {
-            margin-right: 5px;
-            background: $white;
-            padding: 3px;
-            opacity: 0.7;
-            border-radius: 3px; 
+      }
+      .MisGifos__icons {
+        width: 100%;
+    
+        position: absolute;
+        top: 10px;
+    
+        display: flex;
+        justify-content: flex-end;
+    
+        .MisGifos__icon-container {
+          width: 32px;
+          height: 32px;
+    
+          margin-right: 5px;
+    
+          display: none;
+          justify-content: center;
+          align-items: center;
+    
+          opacity: 0.7;
+          background: white;
+    
+          border-radius: 6px;
+    
+          &:hover {
+            opacity: 1;
+          }
+    
+          /*&:active{
+            opacity: 1;
+            .favorites__icon--first{
+              background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart-full.svg");
+            }
+          }*/
+    
+          .MisGifos__icon--first,
+          .MisGifos__icon--second,
+          .MisGifos__icon--last {
+            width: 18px;
+            height: 15.9px;
+    
+            display: block;
+    
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+    
+          .MisGifos__icon--first {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/01a371d0a876807d27cfdf955d98c9e808ca25f3/src/assets/icon-delete.svg");
+          }
+    
+          .MisGifos__icon--second {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-download.svg");
+          }
+    
+          .MisGifos__icon--last {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-max.svg");
           }
         }
+      }
+      .MisGifos__text {
+        // width: 100%;
+    
+        display: none;
+    
+        position: absolute;
+        top: 70px;
+    
         .MisGifos__p {
-          margin-top: 60px;
-          margin-right: 100px;
-          color: $white;
-          font-family: 'Roboto', sans-serif;
+          margin-left: -35px;
+          margin-bottom: 5px;
+    
+          color: white;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.5rem;
         }
         .MisGifos__title {
-          margin-right: 70px;
-          color: $white;
-          font-family: 'Roboto', sans-serif;
-        } 
+          margin-left: 13px;
+    
+          color: white;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.6rem;
+        }
       }
-      .MisGifos__img:hover {
-        ~.MisGifos__hover {
+    
+      &:hover {
+        .MisGifos__text {
+          display: block;
+        }
+    
+        .MisGifos__icon-container {
+          display: flex;
+        }
+    
+        .MisGifos__hover {
           display: block;
         }
       }
-    }
+    }  
   }
   .MisGifos__button {
     margin: 80px 0;
@@ -79,19 +153,13 @@
     background: none;
     border: 1px solid $purple;
     border-radius: 25px;
+    color: $purple;
 
     &:hover {
       background: $purple;
-    }
-    a {
-      text-decoration: none;
-
-      &:hover {
-        color: $white;
-      }
+      color: $white;
     }
   }
-
 }
 
 @media screen and (min-width: 1024px) {
@@ -99,21 +167,14 @@
     .MisGifos__h2 {
       font-size: 2.5rem;
     }
-    .MisGifos__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 215px);
-      grid-template-rows: repeat(2, 190px);
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      padding: 10px;
+    .MisGifos__father {
       .MisGifos__item {
-        width: 215px;
-        height: 190px;
+        max-width: 260px;
+        height: 200px;
         .MisGifos__img {
           object-fit: cover;
-          width: 215px;
-          height: 190px; 
+          width: 100%;
+          height: 100%;
         }
         .MisGifos__hover {
           width: 100%;
@@ -127,14 +188,16 @@
               border-radius: 5px;
             }
           }
+        }
+        .MisGifos__text {
+          top: 120px;
           .MisGifos__p {
-            margin-top: 100px;
-            margin-right: 150px;
+            margin-right: 20px;
             font-size: 1.5rem;
             line-height: 1.8rem;
           }
           .MisGifos__title {
-            margin-right: 100px;
+            margin-right: 20px;
             font-size: 1.6rem;
             line-height: 1.9rem;
           }
