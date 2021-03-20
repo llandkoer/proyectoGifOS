@@ -6,25 +6,27 @@
   background: #F3F5F8;
   .slider__h2 {
     text-align: center;
-    margin-top: 45px;
+    margin-top: 70px;
     margin-bottom: 10px;
     color: $purple;
     font-size: 2.5rem;
     line-height: 3rem;
   }
-  .slider__p {
-    max-width: 170px;
+  .slider__subtitle {
+    max-width: 240px;
     margin: 0 auto;
+    text-align: center;
     margin-bottom: 30px;
     font-family: 'Roboto', sans-serif;
     color: $black;
-    font-size: 1.8rem;
-    line-height: 2.1rem;
+    font-size: 1.6rem;
+    line-height: 2.3rem;
   }
   .slider__container {
     white-space: nowrap;
     width: 100%;
     margin: 0 auto;
+    margin-top: 50px;
     overflow: scroll;
 
     &::-webkit-scrollbar {
@@ -173,7 +175,7 @@
       margin-bottom: 12px;
       font-size: 2.5rem;
     }
-    .slider__p {
+    .slider__subtitle {
       max-width: 400px;
       font-size: 1.8rem;
       line-height: 2.1rem;
