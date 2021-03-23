@@ -10,6 +10,10 @@
     color: $purple;
     font-size: 2rem;
     line-height: 3rem;
+
+    body.dark &{
+      color: $white;
+    }
   }
   .favorites__father {
     width: 90%;

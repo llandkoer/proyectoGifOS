@@ -1,26 +1,35 @@
 <html lang="es">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="" />
-  <meta name="robots" content="index,follow" />
-  <link rel="shortcut icon" href="../src/assets/logo-dark-mode.svg" type="image/x-icon" />
-  <link rel="stylesheet" href="./styles/styles.css">
-  <link
-  rel="stylesheet"
-  href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-/>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!--<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"></script>-->
-  <title>Mis GifOS</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="robots" content="index,follow" />
+    <link
+      rel="shortcut icon"
+      href="../src/assets/logo-dark-mode.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"></script>-->
+    <title>GifOS</title>
+  </head>
 
   <body>
     <header class="header">
       <div class="header__container--purple"></div>
       <div class="header__container--flex">
-        <img src="https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/logo.svg" alt="Logo de GifOS" />
+        <a href="./index.html"
+          ><img id="logo" src="../src/assets/logo.svg" alt="Logo de GifOS"
+        /></a>
         <!-- <div class="header__browser"></div> -->
         <nav class="header__nav">
           <div class="header__menu">
@@ -28,7 +37,7 @@
             <span class="header__menu-img"></span>
             <ul class="header__list">
               <li class="header__item">
-                <a class="header__link" href="#">Modo Nocturno</a>
+                <button class="header__link" id="switch">Modo Nocturno</button>
                 <div class="header__divider"></div>
               </li>
               <li class="header__item">
@@ -36,7 +45,9 @@
                 <div class="header__divider"></div>
               </li>
               <li class="header__item">
-                <a style="color: #979797;"  class="header__link" href="./MisGifos.html">Mis GIFOS</a>
+                <a class="header__link" href="#" style="color: #9cafc3"
+                  >Mis GIFOS</a
+                >
                 <div class="header__divider"></div>
               </li>
               <li class="header__item">
@@ -53,9 +64,12 @@
     </header>
 
     <main>
-
       <section class="MisGifos">
-        <img class="MisGifos__icon" src="https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-face.svg" alt="Icono de un rostro">
+        <img
+          class="MisGifos__icon"
+          src="https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-face.svg"
+          alt="Icono de un rostro"
+        />
         <h2 class="MisGifos__h2">Mis GIFOS</h2>
         <div class="MisGifos__father">
           <div class="MisGifos__item">
@@ -81,7 +95,7 @@
               <p class="MisGifos__title">Título GIFO</p>
             </div>
           </div>
-    
+
           <div class="MisGifos__item">
             <img
               class="MisGifos__img"
@@ -105,7 +119,7 @@
               <p class="MisGifos__title">Título GIFO</p>
             </div>
           </div>
-    
+
           <div class="MisGifos__item">
             <img
               class="MisGifos__img"
@@ -129,7 +143,7 @@
               <p class="MisGifos__title">Título GIFO</p>
             </div>
           </div>
-    
+
           <div class="MisGifos__item">
             <img
               class="MisGifos__img"
@@ -153,7 +167,7 @@
               <p class="MisGifos__title">Título GIFO</p>
             </div>
           </div>
-    
+
           <div class="MisGifos__item">
             <img
               class="MisGifos__img"
@@ -177,7 +191,7 @@
               <p class="MisGifos__title">Título GIFO</p>
             </div>
           </div>
-    
+
           <div class="MisGifos__item">
             <img
               class="MisGifos__img"
@@ -201,7 +215,7 @@
               <p class="MisGifos__title">Título GIFO</p>
             </div>
           </div>
-    
+
           <div class="MisGifos__item">
             <img
               class="MisGifos__img"
@@ -250,94 +264,98 @@
             </div>
           </div>
         </div>
-        <button class="MisGifos__button" type="button"><a href="">VER MÁS</a></button>
+        <button class="MisGifos__button" type="button">
+          <a href="">VER MÁS</a>
+        </button>
       </section>
 
-        <section class="slider">
-          <h2 class="slider__h2">Trending GIFOS</h2>
-          <p class="slider__subtitle">Mira los últimos GIFOS de nuestra comunidad.</p>
-          <div class="slider__container">
-            <div class="slider__arrow">
-              <span class="arrow-left"></span>
-            </div>
-    
-            <div class="slider__item">
-              <img
-                class="slider__img"
-                src="https://bit.ly/2PkhTNg"
-                alt="Imagen de prueba"
-              />
-              <div class="slider__hover"></div>
-              <div class="slider__icons">
-                <div class="slider__icon-container">
-                  <span class="slider__icon--first"></span>
-                </div>
-                <div class="slider__icon-container">
-                  <span class="slider__icon--second"></span>
-                </div>
-                <div class="slider__icon-container">
-                  <span class="slider__icon--last"></span>
-                </div>
+      <section class="slider">
+        <h2 class="slider__h2">Trending GIFOS</h2>
+        <p class="slider__subtitle">
+          Mira los últimos GIFOS de nuestra comunidad.
+        </p>
+        <div class="slider__container">
+          <div class="slider__arrow">
+            <span class="arrow-left"></span>
+          </div>
+
+          <div class="slider__item">
+            <img
+              class="slider__img"
+              src="https://bit.ly/2PkhTNg"
+              alt="Imagen de prueba"
+            />
+            <div class="slider__hover"></div>
+            <div class="slider__icons">
+              <div class="slider__icon-container">
+                <span class="slider__icon--first"></span>
               </div>
-              <div class="slider__text">
-                <p class="slider__p">User</p>
-                <p class="slider__title">Título GIFO</p>
+              <div class="slider__icon-container">
+                <span class="slider__icon--second"></span>
+              </div>
+              <div class="slider__icon-container">
+                <span class="slider__icon--last"></span>
               </div>
             </div>
-    
-            <div class="slider__item">
-              <img
-                class="slider__img"
-                src="https://bit.ly/2PkhTNg"
-                alt="Imagen de prueba"
-              />
-              <div class="slider__hover"></div>
-              <div class="slider__icons">
-                <div class="slider__icon-container">
-                  <span class="slider__icon--first"></span>
-                </div>
-                <div class="slider__icon-container">
-                  <span class="slider__icon--second"></span>
-                </div>
-                <div class="slider__icon-container">
-                  <span class="slider__icon--last"></span>
-                </div>
-              </div>
-              <div class="slider__text">
-                <p class="slider__p">User</p>
-                <p class="slider__title">Título GIFO</p>
-              </div>
-            </div>
-    
-            <div class="slider__item">
-              <img
-                class="slider__img"
-                src="https://bit.ly/2PkhTNg"
-                alt="Imagen de prueba"
-              />
-              <div class="slider__hover"></div>
-              <div class="slider__icons">
-                <div class="slider__icon-container">
-                  <span class="slider__icon--first"></span>
-                </div>
-                <div class="slider__icon-container">
-                  <span class="slider__icon--second"></span>
-                </div>
-                <div class="slider__icon-container">
-                  <span class="slider__icon--last"></span>
-                </div>
-              </div>
-              <div class="slider__text">
-                <p class="slider__p">User</p>
-                <p class="slider__title">Título GIFO</p>
-              </div>
-            </div>
-    
-            <div class="slider__arrow">
-              <span class="arrow-right"></span>
+            <div class="slider__text">
+              <p class="slider__p">User</p>
+              <p class="slider__title">Título GIFO</p>
             </div>
           </div>
-        </section>
+
+          <div class="slider__item">
+            <img
+              class="slider__img"
+              src="https://bit.ly/2PkhTNg"
+              alt="Imagen de prueba"
+            />
+            <div class="slider__hover"></div>
+            <div class="slider__icons">
+              <div class="slider__icon-container">
+                <span class="slider__icon--first"></span>
+              </div>
+              <div class="slider__icon-container">
+                <span class="slider__icon--second"></span>
+              </div>
+              <div class="slider__icon-container">
+                <span class="slider__icon--last"></span>
+              </div>
+            </div>
+            <div class="slider__text">
+              <p class="slider__p">User</p>
+              <p class="slider__title">Título GIFO</p>
+            </div>
+          </div>
+
+          <div class="slider__item">
+            <img
+              class="slider__img"
+              src="https://bit.ly/2PkhTNg"
+              alt="Imagen de prueba"
+            />
+            <div class="slider__hover"></div>
+            <div class="slider__icons">
+              <div class="slider__icon-container">
+                <span class="slider__icon--first"></span>
+              </div>
+              <div class="slider__icon-container">
+                <span class="slider__icon--second"></span>
+              </div>
+              <div class="slider__icon-container">
+                <span class="slider__icon--last"></span>
+              </div>
+            </div>
+            <div class="slider__text">
+              <p class="slider__p">User</p>
+              <p class="slider__title">Título GIFO</p>
+            </div>
+          </div>
+
+          <div class="slider__arrow">
+            <span class="arrow-right"></span>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
@@ -345,11 +363,13 @@
         <div class="footer__social-media">
           <span class="footer__text-share">Compartir en:</span>
           <div class="footer__icons">
-            <a href="https://www.facebook.com/"
+            <a href="https://www.facebook.com/" target="_blank"
               ><i class="fab fa-facebook-f"></i
             ></a>
-            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/"
+            <a href="https://twitter.com/" target="_blank"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="https://www.instagram.com/" target="_blank"
               ><i class="fab fa-instagram"></i
             ></a>
           </div>
@@ -362,5 +382,6 @@
       </div>
       <div class="footer__purple-line"></div>
     </footer>
-    
+    <script src="../src/scripts/dark-mode.js"></script>
   </body>
+</html>

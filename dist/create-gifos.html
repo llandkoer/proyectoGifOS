@@ -19,7 +19,7 @@
   <header class="header">
     <div class="header__container--purple"></div>
     <div class="header__container--flex">
-      <a href="./index.html"><img src="../src/assets/logo.svg" alt="Logo de GifOS" /></a>
+      <a href="./index.html"><img id="logo" src="../src/assets/logo.svg" alt="Logo de GifOS" /></a>
       <!-- <div class="header__browser"></div> -->
       <nav class="header__nav">
         <div class="header__menu">
@@ -27,7 +27,9 @@
           <span class="header__menu-img"></span>
           <ul class="header__list">
             <li class="header__item">
-              <a class="header__link" href="#">Modo Nocturno</a>
+              <button class="header__link" id="switch">
+                Modo Nocturno
+              </button>
               <div class="header__divider"></div>
             </li>
             <li class="header__item">
@@ -35,7 +37,7 @@
               <div class="header__divider"></div>
             </li>
             <li class="header__item">
-              <a class="header__link" href="./mis-gifos.html">Mis GIFOS</a>
+              <a class="header__link" href="./MisGifos.html">Mis GIFOS</a>
               <div class="header__divider"></div>
             </li>
             <li class="header__item">
@@ -60,6 +62,7 @@
               class="create-gifos__camara"
               src="../src/assets/illustration-camara.svg"
               alt="Cámara"
+              id="camara"
             />
             <img
               class="create-gifos__light"
@@ -76,6 +79,7 @@
             class="create-gifos__icon-movie"
             src="../src/assets/illustration-movie.svg"
             alt="Cinta de película"
+            id="movie";
           />
           <span class="frames create-gifos__first-frame"></span>
           <span class="frames create-gifos__second-frame"></span>
@@ -108,10 +112,12 @@
         <span class="footer__text-share">Compartir en:</span>
         <div class="footer__icons">
           <a href="https://www.facebook.com/"
+              target="_blank"
             ><i class="fab fa-facebook-f"></i
           ></a>
-          <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+          <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
           <a href="https://www.instagram.com/"
+          target="_blank"
             ><i class="fab fa-instagram"></i
           ></a>
         </div>
@@ -125,6 +131,7 @@
     <div class="footer__purple-line"></div>
   </footer>
 
+  <script src="../src/scripts/dark-mode.js"></script>
 </body>
 
 </html>

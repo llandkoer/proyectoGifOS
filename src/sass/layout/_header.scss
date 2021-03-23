@@ -6,6 +6,10 @@
     width: 100%;
     height: 5px;
     background-color: $purple;
+    transition: 0.3s ease all;
+    body.dark & {
+      background-color: $black;
+    }
   }
 
   .header__container--flex {
@@ -14,6 +18,11 @@
     align-items: center;
     padding: 28px 26px 17px 22px;
     background: $white;
+    transition: 0.3s ease all;
+
+    body.dark & {
+      background-color: $dark-gray;
+    }
 
     img {
       width: 50px;
@@ -39,7 +48,12 @@
       list-style: none;
       background: rgba(87, 46, 229, 0.9);
       transition: height 0.5s ease;
-      z-index: -999;
+      z-index: 999;
+      transition: 0.3s ease all;
+
+      body.dark & {
+        background-color: $black;
+      }
     }
 
     .header__item {
@@ -59,6 +73,16 @@
       padding: 0 5%;
       color: $white;
       text-decoration: none;
+
+      &:first-child {
+        font-family: inherit;
+
+        margin: 0 auto;
+
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
     }
 
     .header__link--plus {
@@ -74,6 +98,24 @@
         border-radius: 50%;
         border: 1px solid $purple;
         cursor: pointer;
+
+        body.dark & {
+          background-color: transparent;
+          border: 1px solid $white;
+
+          &:hover {
+            background: $white;
+            border: none;
+
+            span {
+              background-image: url("https://svgur.com/i/VHJ.svg");
+            }
+          }
+
+          span {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/32f8e91ebaf2cd84ff9677adad2410d7ba1c1f21/src/assets/icon-plus-white.svg");
+          }
+        }
 
         span {
           display: block;
@@ -134,12 +176,20 @@
       background-repeat: no-repeat;
       background-size: cover;
       z-index: 1;
+
+      body.dark & {
+        background-image: url("https://svgur.com/i/VGR.svg");
+      }
     }
 
     .header__input:checked ~ .header__menu-img {
       width: 14px;
       height: 14px;
       background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/22982f93488939531983f4b1d58df2d89c711825/src/assets/icon-menu-header-x.svg");
+
+      body.dark & {
+        background-image: url("https://svgur.com/i/VGx.svg");
+      }
     }
   }
 }
@@ -160,6 +210,7 @@
 
       .header__nav {
         width: 80%;
+
         .header__menu {
           .header__input {
             display: none;
@@ -175,6 +226,10 @@
             height: 60px;
             width: 100%;
             @include flex(row, flex-end, center);
+
+            body.dark & {
+              background-color: $dark-gray;
+            }
 
             .header__item {
               display: inline-block;
@@ -194,13 +249,29 @@
 
               .header__link {
                 padding: unset;
-                color: $purple;
                 font-size: 1.3rem;
                 font-weight: 700;
                 color: $purple;
                 letter-spacing: 0;
                 text-align: center;
                 text-transform: uppercase;
+                height: 45px;
+
+                &:active{
+                  color: #9CAFC3;
+                }
+
+                &:hover {
+                  border-bottom: 4px solid $blue;
+                }
+
+                body.dark & {
+                  color: $white;
+
+                  &:active{
+                    color: #9CAFC3;
+                  }
+                }
               }
 
               .header__link--plus {

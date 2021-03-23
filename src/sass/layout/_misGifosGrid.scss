@@ -8,8 +8,12 @@
   .MisGifos__h2 {
     margin-bottom: 45px;
     color: $purple;
-    font-size: 2.0rem;
-    line-height: 3.0rem;
+    font-size: 2rem;
+    line-height: 3rem;
+
+    body.dark &{
+      color: $white;
+    }
   }
   .MisGifos__father {
     width: 90%;
@@ -17,90 +21,89 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 auto;
-  
+
     .MisGifos__item {
       max-width: 156px;
       width: 45%;
       height: 120px;
       margin-bottom: 21px;
-      position: relative; 
-      
-    
+      position: relative;
+
       .MisGifos__img {
         width: 100%;
         height: 100%;
-    
+
         object-fit: cover;
       }
       .MisGifos__hover {
         width: 100%;
         height: 100%;
-    
+
         position: absolute;
         top: 0;
         left: 0;
-    
+
         background: #572ee5;
         opacity: 0.7;
-    
+
         display: none;
       }
       .MisGifos__icons {
         width: 100%;
-    
+
         position: absolute;
         top: 10px;
-    
+
         display: flex;
         justify-content: flex-end;
-    
+
         .MisGifos__icon-container {
           width: 32px;
           height: 32px;
-    
+
           margin-right: 5px;
-    
+
           display: none;
           justify-content: center;
           align-items: center;
-    
+
           opacity: 0.7;
           background: white;
-    
+
           border-radius: 6px;
-    
+
           &:hover {
             opacity: 1;
           }
-    
+
           /*&:active{
             opacity: 1;
             .favorites__icon--first{
               background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart-full.svg");
             }
           }*/
-    
+
           .MisGifos__icon--first,
           .MisGifos__icon--second,
           .MisGifos__icon--last {
             width: 18px;
             height: 15.9px;
-    
+
             display: block;
-    
+
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
           }
-    
+
           .MisGifos__icon--first {
             background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/01a371d0a876807d27cfdf955d98c9e808ca25f3/src/assets/icon-delete.svg");
           }
-    
+
           .MisGifos__icon--second {
             background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-download.svg");
           }
-    
+
           .MisGifos__icon--last {
             background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-max.svg");
           }
@@ -108,43 +111,43 @@
       }
       .MisGifos__text {
         // width: 100%;
-    
+
         display: none;
-    
+
         position: absolute;
         top: 70px;
-    
+
         .MisGifos__p {
           margin-left: -35px;
           margin-bottom: 5px;
-    
+
           color: white;
           font-family: "Roboto", sans-serif;
           font-size: 1.5rem;
         }
         .MisGifos__title {
           margin-left: 13px;
-    
+
           color: white;
           font-family: "Roboto", sans-serif;
           font-size: 1.6rem;
         }
       }
-    
+
       &:hover {
         .MisGifos__text {
           display: block;
         }
-    
+
         .MisGifos__icon-container {
           display: flex;
         }
-    
+
         .MisGifos__hover {
           display: block;
         }
       }
-    }  
+    }
   }
   .MisGifos__button {
     margin: 80px 0;
@@ -155,9 +158,33 @@
     border-radius: 25px;
     color: $purple;
 
+    a{
+      text-decoration: none;
+    }
+
+    &:hover a{
+      color: $white;
+    }
+
     &:hover {
       background: $purple;
       color: $white;
+    }
+
+    body.dark & {
+      background: transparent;
+      color: $white;
+      border: 1px solid $white;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      &:hover {
+        background-color: $white;
+        color: $black;
+      }
     }
   }
 }

@@ -25,7 +25,9 @@
     <header class="header">
       <div class="header__container--purple"></div>
       <div class="header__container--flex">
-        <a href="./index.html"><img src="../src/assets/logo.svg" alt="Logo de GifOS" /></a>
+        <a href="./index.html"
+          ><img id="logo" src="../src/assets/logo.svg" alt="Logo de GifOS"
+        /></a>
         <!-- <div class="header__browser"></div> -->
         <nav class="header__nav">
           <div class="header__menu">
@@ -33,17 +35,15 @@
             <span class="header__menu-img"></span>
             <ul class="header__list">
               <li class="header__item">
-                <a class="header__link" href="#">Modo Nocturno</a>
+                <button class="header__link" id="switch">Modo Nocturno</button>
                 <div class="header__divider"></div>
               </li>
               <li class="header__item">
-                <a style="color: #979797" class="header__link" href="#"
-                  >Favoritos</a
-                >
+                <a class="header__link" href="#" style="color: #9CAFC3;">Favoritos</a>
                 <div class="header__divider"></div>
               </li>
               <li class="header__item">
-                <a class="header__link" href="./mis-gifos.html">Mis GIFOS</a>
+                <a class="header__link" href="./MisGifos.html">Mis GIFOS</a>
                 <div class="header__divider"></div>
               </li>
               <li class="header__item">
@@ -240,7 +240,9 @@
 
       <section class="slider">
         <h2 class="slider__h2">Trending GIFOS</h2>
-        <p class="slider__subtitle">Mira los últimos GIFOS de nuestra comunidad.</p>
+        <p class="slider__subtitle">
+          Mira los últimos GIFOS de nuestra comunidad.
+        </p>
         <div class="slider__container">
           <div class="slider__arrow">
             <span class="arrow-left"></span>
@@ -331,10 +333,12 @@
           <span class="footer__text-share">Compartir en:</span>
           <div class="footer__icons">
             <a href="https://www.facebook.com/"
+                target="_blank"
               ><i class="fab fa-facebook-f"></i
             ></a>
-            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="https://www.instagram.com/"
+            target="_blank"
               ><i class="fab fa-instagram"></i
             ></a>
           </div>
@@ -347,5 +351,6 @@
       </div>
       <div class="footer__purple-line"></div>
     </footer>
+    <script src="../src/scripts/dark-mode.js"></script>
   </body>
 </html>

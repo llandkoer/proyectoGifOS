@@ -37,6 +37,10 @@
     height: auto;
     border: 1px solid $purple;
 
+    body.dark &{
+      border: 1px solid $white;
+    }
+
     h2 {
       width: 220px;
       margin-left: auto;
@@ -59,6 +63,10 @@
       color: $black;
       text-align: center;
       line-height: 2.8rem;
+
+      body.dark &{
+        color:$white;
+      }
     }
   }
 
@@ -81,10 +89,27 @@
     @extend %steps;
     margin-right: 26px;
 
+    body.dark &{
+      background: transparent;
+      border: 1px solid  $white;
+
+      span{
+        color: $white;
+      }
+    }
+
     &--highlighted {
       @include flex(row, center, center);
       @extend %steps-highlighted;
       margin-right: 26px;
+
+      body.dark &{
+        background: $white;
+
+        span{
+          color: $black;
+        }
+      }
     }
   }
 
@@ -95,6 +120,10 @@
     height: 7px;
     background-color: $purple;
     border-radius: 10px;
+
+    body.dark &{
+      background-color: $white;
+    }
   }
 
   .frames{

@@ -1,0 +1,7 @@
+body{
+  transition: .3s ease all;
+}
+
+body.dark {
+  background-color: $dark-gray;
+}

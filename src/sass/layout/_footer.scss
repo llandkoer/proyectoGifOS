@@ -3,6 +3,10 @@
   width: 100%;
   height: auto;
 
+  body.dark & {
+    background-color: $dark-gray;
+  }
+
   &__social-media {
     margin: 0 auto;
 
@@ -16,6 +20,10 @@
       font-size: 1.5rem;
       color: $black;
       letter-spacing: 0;
+
+      body.dark & {
+        color: $white;
+      }
     }
 
     .footer__icons {
@@ -34,6 +42,10 @@
           display: inline-block;
           font-size: 2rem;
           color: $gray-icons;
+
+          body.dark &:hover {
+            color: $white;
+          }
 
           &:hover {
             color: $purple;
@@ -55,6 +67,10 @@
       font-size: 1.4rem;
       color: $black;
       letter-spacing: 0;
+
+      body.dark & {
+        color: $white;
+      }
     }
   }
 
@@ -62,6 +78,10 @@
     width: 100%;
     height: 5px;
     background-color: $purple;
+
+    body.dark &{
+      background-color: $black;
+    }
   }
 }
 

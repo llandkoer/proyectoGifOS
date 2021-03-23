@@ -8,14 +8,18 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="../../dist/styles/styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../dist/styles/styles.css"
+    />
     <title>Document</title>
   </head>
   <body>
     <header class="header">
       <div class="header__container--purple"></div>
       <div class="header__container--flex">
-        <img src="../assets/logo.svg" alt="Logo de GifOS" />
+        <img id="logo" src="../assets/logo.svg" alt="Logo de GifOS" />
         <!-- <div class="header__browser"></div> -->
         <nav class="header__nav">
           <div class="header__menu">
@@ -23,7 +27,9 @@
             <span class="header__menu-img"></span>
             <ul class="header__list">
               <li class="header__item">
-                <a class="header__link" href="#">Modo Nocturno</a>
+                <button class="header__link" id="switch">
+                  Modo Nocturno
+                </button>
                 <div class="header__divider"></div>
               </li>
               <li class="header__item">
@@ -46,5 +52,6 @@
         </nav>
       </div>
     </header>
+    <script src="../scripts/dark-mode.js"></script>
   </body>
 </html>

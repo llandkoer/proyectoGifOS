@@ -8,6 +8,10 @@
     color: $purple;
     font-size: 2.5rem;
     line-height: 3.3rem;
+
+    body.dark & {
+    color: $white;
+    }
     .hero__h1-word {
       color: $blue;
     }
@@ -18,7 +22,7 @@
     height: 130px;
     margin: 0 auto;
   }
-  
+
   .container-search-gifos {
     width: 100%;
     max-width: 334px;
@@ -32,7 +36,12 @@
     border-radius: 27px;
     margin: 0 auto;
     margin-bottom: 70px;
-    
+
+    body.dark & {
+      background: transparent;
+      border: 1px solid $white
+    }
+
     .search-bar {
       width: 80%;
       height: 22px;
@@ -43,6 +52,10 @@
       color: $black;
       margin: 15px 5px 13px 55px;
       outline: none;
+
+      body.dark & {
+        background: transparent;
+      }
     }
     .button-search {
       position: absolute;
@@ -60,6 +73,10 @@
       .search-icon {
         color: inherit;
         font-size: 2rem;
+
+        body.dark & {
+          color: $white;
+        }
       }
     }
     .button-clean {
@@ -128,14 +145,22 @@
     font-size: 1.6rem;
     line-height: 2.5rem;
     color: $purple;
+
+    body.dark & {
+      color: $white;
+    }
   }
   .hero__p {
     max-width: 225px;
     margin: 0 auto;
     font-size: 1.4rem;
     line-height: 2.5rem;
-    color: $purple; 
-  } 
+    color: $purple;
+
+    body.dark & {
+    color: $white;
+    }
+  }
 }
 
 @media screen and (min-width: 1024px) {

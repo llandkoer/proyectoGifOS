@@ -1,9 +1,12 @@
-
 .slider {
   width: 100%;
 
   position: relative;
-  background: #F3F5F8;
+  background: #f3f5f8;
+
+  body.dark & {
+    background-color: $light-black;
+  }
   .slider__h2 {
     text-align: center;
     margin-top: 70px;
@@ -11,16 +14,24 @@
     color: $purple;
     font-size: 2.5rem;
     line-height: 3rem;
+
+    body.dark & {
+      color: $white;
+    }
   }
   .slider__subtitle {
     max-width: 240px;
     margin: 0 auto;
     text-align: center;
     margin-bottom: 30px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     color: $black;
-    font-size: 1.6rem;
-    line-height: 2.3rem;
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+
+    body.dark & {
+      color: $white;
+    }
   }
   .slider__container {
     white-space: nowrap;
@@ -91,9 +102,9 @@
             opacity: 1;
           }
 
-          &:active{
+          &:active {
             opacity: 1;
-            .slider__icon--first{
+            .slider__icon--first {
               background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart-full.svg");
             }
           }
@@ -137,14 +148,14 @@
           margin-bottom: 5px;
 
           color: $white;
-          font-family: 'Roboto', sans-serif;
+          font-family: "Roboto", sans-serif;
           font-size: 1.5rem;
         }
         .slider__title {
           margin-left: 13px;
 
           color: $white;
-          font-family: 'Roboto', sans-serif;
+          font-family: "Roboto", sans-serif;
           font-size: 1.6rem;
           font-weight: bold;
         }
@@ -198,6 +209,32 @@
         //margin-right: 20px;
         background-color: $white;
         border: 1px solid $purple;
+
+        body.dark & {
+          background: transparent;
+          border: 1px solid $white;
+
+          .arrow-left {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/22982f93488939531983f4b1d58df2d89c711825/src/assets/icon-left-white.svg");
+          }
+
+          .arrow-right {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/22982f93488939531983f4b1d58df2d89c711825/src/assets/icon-right-white.svg");
+          }
+
+          &:hover {
+            background-color: $white;
+
+            .arrow-left {
+              background-image: url("https://svgur.com/i/VGK.svg");
+              transform: scaleX(-1)
+            }
+
+            .arrow-right {
+              background-image: url("https://svgur.com/i/VGK.svg");
+            }
+          }
+        }
 
         &:hover .arrow-left {
           background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/22982f93488939531983f4b1d58df2d89c711825/src/assets/icon-left-white.svg");
