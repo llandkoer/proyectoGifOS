@@ -57,12 +57,12 @@
     <section class="create-gifos">
       <section class="create-gifos__main-container">
         <div class="create-gifos__main">
-          <div class="create-gifos__icon-camara">
+          <div class="create-gifos__icon-camera">
             <img
-              class="create-gifos__camara"
-              src="../src/assets/illustration-camara.svg"
+              class="create-gifos__camera"
+              src="../src/assets/illustration-camera.svg"
               alt="Cámara"
-              id="camara"
+              id="camera"
             />
             <img
               class="create-gifos__light"
@@ -70,10 +70,9 @@
               alt="Luz que emite la cámara"
             />
           </div>
-          <h2>¿Nos das acceso a tu cámara?</h2>
+          <h2>Aquí podrás <br>crear tus propios <span>GIFOS</span></h2>
           <p>
-            El acceso a tu cámara será válido sólo por el tiempo en el que estés
-            creando el GIFO.
+            ¡Crea tu GIFO en sólo 3 pasos! <br> (sólo necesitas una cámara para grabar un video)
           </p>
           <img
             class="create-gifos__icon-movie"
@@ -89,7 +88,8 @@
       </section>
 
       <div class="create-gifos__steps-container">
-        <div class="create-gifos__steps--highlighted">
+        <!-- create-gifos__steps--highlighted -->
+        <div class="create-gifos__steps">
           <span>1</span>
         </div>
 
@@ -103,6 +103,7 @@
       </div>
 
       <div class="create-gifos__purple-bar"></div>
+      <button class="create-gifos__start" id="btnStartRecord">Comenzar</button>
     </section>
   </main>
 
@@ -130,8 +131,10 @@
     </div>
     <div class="footer__purple-line"></div>
   </footer>
-
+  <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+  <script src="https://www.webrtc-experiment.com/gif-recorder.js"></script>
   <script src="../src/scripts/dark-mode.js"></script>
+  <script src="../src/scripts/create-gifos.js"></script>
 </body>
 
 </html>

@@ -8,13 +8,13 @@
     width: 100%;
   }
 
-  &__icon-camara {
+  &__icon-camera {
     display: flex;
     position: absolute;
     top: calc(65% - 130px);
     left: calc(-27% - 61px);
 
-    .create-gifos__camara {
+    .create-gifos__camera {
       width: 123px;
       height: 162px;
     }
@@ -37,12 +37,12 @@
     height: auto;
     border: 1px solid $purple;
 
-    body.dark &{
+    body.dark & {
       border: 1px solid $white;
     }
 
     h2 {
-      width: 220px;
+      //width: 220px;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 3px;
@@ -51,10 +51,14 @@
       color: $purple;
       text-align: center;
       line-height: 3.5rem;
+
+      span {
+        color: $blue;
+      }
     }
 
     p {
-      width: 300px;
+      //width: 300px;
       margin-left: auto;
       margin-right: auto;
       font-family: "Roboto", sans-serif;
@@ -64,8 +68,8 @@
       text-align: center;
       line-height: 2.8rem;
 
-      body.dark &{
-        color:$white;
+      body.dark & {
+        color: $white;
       }
     }
   }
@@ -78,7 +82,7 @@
     left: calc(121% - 71px);
   }
 
-  &__steps-container{
+  &__steps-container {
     @include flex(row, center, center);
     margin-top: 24px;
     margin-bottom: 19px;
@@ -89,11 +93,11 @@
     @extend %steps;
     margin-right: 26px;
 
-    body.dark &{
+    body.dark & {
       background: transparent;
-      border: 1px solid  $white;
+      border: 1px solid $white;
 
-      span{
+      span {
         color: $white;
       }
     }
@@ -103,10 +107,10 @@
       @extend %steps-highlighted;
       margin-right: 26px;
 
-      body.dark &{
+      body.dark & {
         background: $white;
 
-        span{
+        span {
           color: $black;
         }
       }
@@ -115,18 +119,18 @@
 
   &__purple-bar {
     margin: 0 auto;
-    margin-bottom: 96px;
+    margin-bottom: 20px;
     width: 795px;
     height: 7px;
     background-color: $purple;
     border-radius: 10px;
 
-    body.dark &{
+    body.dark & {
       background-color: $white;
     }
   }
 
-  .frames{
+  .frames {
     display: block;
     width: 27px;
     height: 25px;
@@ -135,26 +139,91 @@
     position: absolute;
   }
 
-  .create-gifos__first-frame{
+  .create-gifos__first-frame {
     top: 20px;
-    left:20px;
+    left: 20px;
   }
 
-  .create-gifos__second-frame{
+  .create-gifos__second-frame {
     transform: rotate(-270deg);
     right: 20px;
-    top: 20px
+    top: 20px;
   }
 
-  .create-gifos__third-frame{
+  .create-gifos__third-frame {
     transform: rotate(-90deg);
     bottom: 20px;
     left: 20px;
   }
 
-  .create-gifos__last-frame{
+  .create-gifos__last-frame {
     transform: rotate(-180deg);
     right: 20px;
     bottom: 20px;
+  }
+
+  .create-gifos__start {
+    width: 127px;
+    height: 50px;
+
+    margin: 0 auto;
+    margin-bottom: 96px;
+    display: block;
+
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $purple;
+
+    background-color: transparent;
+
+    border-radius: 25px;
+    border: 2px solid $purple;
+    cursor: pointer;
+
+    &:hover {
+      color: $white;
+      background-color: $purple;
+    }
+
+    body.dark & {
+      color: $white;
+
+      border: 2px solid $white;
+
+      &:hover {
+        background-color: $white;
+        color: $black;
+      }
+    }
+  }
+
+  .create-gifos__video-container {
+    width: 480px;
+    height: 320px;
+    z-index: 999;
+
+    position: absolute;
+    top: calc(50% - 160px);
+    left: calc(50% - 240px);
+
+    .create-gifos__video {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .create-gifos__timer {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $purple;
+    position: absolute;
+    top: 107%;
+    right: 0;
+    text-transform: uppercase;
+
+    body.dark &{
+      color: $white;
+    }
   }
 }

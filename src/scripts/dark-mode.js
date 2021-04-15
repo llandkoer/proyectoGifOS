@@ -1,6 +1,6 @@
 const btnSwitch = document.querySelector("#switch");
 const logo = document.querySelector("#logo");
-const camera = document.querySelector("#camara");
+const camera = document.querySelector("#camera");
 const movie = document.querySelector("#movie");
 
 btnSwitch.addEventListener("click", () => {
@@ -13,40 +13,40 @@ btnSwitch.addEventListener("click", () => {
     logo.setAttribute("src", "../src/assets/logo-dark-mode.svg");
 
     camera.removeAttribute("src");
-    camera.setAttribute("src", "../src/assets/illustration-camara-dark.svg");
+    camera.setAttribute("src", "../src/assets/illustration-camera-dark.svg");
 
     movie.removeAttribute("src");
     movie.setAttribute("src", "../src/assets/Illustration-movie-dark.svg");
 
-    localStorage.setItem('dark-mode', 'true')
+    localStorage.setItem("dark-mode", "true");
   } else {
     btnSwitch.innerHTML = "Modo Nocturno";
     logo.removeAttribute("src");
     logo.setAttribute("src", "../src/assets/logo.svg");
 
     camera.removeAttribute("src");
-    camera.setAttribute("src", "../src/assets/illustration-camara.svg");
+    camera.setAttribute("src", "../src/assets/illustration-camera.svg");
 
     movie.removeAttribute("src");
     movie.setAttribute("src", "../src/assets/illustration-movie.svg");
 
-    localStorage.setItem('dark-mode', 'false')
+    localStorage.setItem("dark-mode", "false");
   }
 });
 
-if (localStorage.getItem('dark-mode') === 'true'){
+if (localStorage.getItem("dark-mode") === "true") {
   document.body.classList.add("dark");
 
   btnSwitch.innerHTML = "Modo Diurno";
 
   logo.removeAttribute("src");
-    logo.setAttribute("src", "../src/assets/logo-dark-mode.svg");
+  logo.setAttribute("src", "../src/assets/logo-dark-mode.svg");
 
   camera.removeAttribute("src");
-    camera.setAttribute("src", "../src/assets/illustration-camara-dark.svg");
+  camera.setAttribute("src", "../src/assets/illustration-camera-dark.svg");
 
-    movie.removeAttribute("src");
-    movie.setAttribute("src", "../src/assets/Illustration-movie-dark.svg");
-} else{
+  movie.removeAttribute("src");
+  movie.setAttribute("src", "../src/assets/Illustration-movie-dark.svg");
+} else {
   document.body.classList.remove("dark");
 }
