@@ -7,28 +7,23 @@ btnSwitch.addEventListener("click", () => {
   document.body.classList.toggle("dark");
 
   if (document.body.classList.contains("dark") === true) {
-    btnSwitch.innerHTML = "Modo Diurno";
+    btnSwitch.textContent = "Modo Diurno";
 
-    logo.removeAttribute("src");
-    logo.setAttribute("src", "../src/assets/logo-dark-mode.svg");
+    logo.src = "../src/assets/logo-dark-mode.svg";
 
-    camera.removeAttribute("src");
-    camera.setAttribute("src", "../src/assets/illustration-camera-dark.svg");
+    camera.src = "../src/assets/illustration-camera-dark.svg";
 
-    movie.removeAttribute("src");
-    movie.setAttribute("src", "../src/assets/Illustration-movie-dark.svg");
+    movie.src = "../src/assets/Illustration-movie-dark.svg";
 
     localStorage.setItem("dark-mode", "true");
   } else {
-    btnSwitch.innerHTML = "Modo Nocturno";
-    logo.removeAttribute("src");
-    logo.setAttribute("src", "../src/assets/logo.svg");
+    btnSwitch.textContent = "Modo Nocturno";
 
-    camera.removeAttribute("src");
-    camera.setAttribute("src", "../src/assets/illustration-camera.svg");
+    logo.src = "../src/assets/logo.svg";
 
-    movie.removeAttribute("src");
-    movie.setAttribute("src", "../src/assets/illustration-movie.svg");
+    camera.src = "../src/assets/illustration-camera.svg";
+
+    movie.src = "../src/assets/illustration-movie.svg";
 
     localStorage.setItem("dark-mode", "false");
   }
@@ -39,14 +34,11 @@ if (localStorage.getItem("dark-mode") === "true") {
 
   btnSwitch.innerHTML = "Modo Diurno";
 
-  logo.removeAttribute("src");
-  logo.setAttribute("src", "../src/assets/logo-dark-mode.svg");
+  logo.src = "../src/assets/logo-dark-mode.svg";
 
-  camera.removeAttribute("src");
-  camera.setAttribute("src", "../src/assets/illustration-camera-dark.svg");
+  camera.src = "../src/assets/illustration-camera-dark.svg";
 
-  movie.removeAttribute("src");
-  movie.setAttribute("src", "../src/assets/Illustration-movie-dark.svg");
+  movie.src = "../src/assets/Illustration-movie-dark.svg";
 } else {
   document.body.classList.remove("dark");
 }
