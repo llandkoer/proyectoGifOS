@@ -13,7 +13,7 @@ const textContainerVideo = document.createElement("div");
 const textContentVideo = document.createElement("p");
 const purpleBackground = document.createElement("div");
 const loader = document.createElement("img");
-const form = new FormData();
+let form = new FormData();
 let gifID;
 const watch = timer;
 let milliseconds = 0;
@@ -59,22 +59,53 @@ const actionBtnStartRecord = () => {
 };
 
 async function postData() {
-  const res = await fetch("https://upload.giphy.com/v1/gifs?api_key=hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD", {
-    method: "post",
-    body: form,
-    redirect: "follow",
-  });
-  const json = await res.json();
-  gifID = json.data.id;
+  try {
+    const res = await fetch("https://upload.giphy.com/v1/gifs?api_key=hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD", {
+      method: "post",
+      body: form,
+      redirect: "follow",
+    });
+    const json = await res.json();
+    gifID = json.data.id;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 async function getMyGif() {
-  const resp = await fetch(`https://api.giphy.com/v1/gifs/${gifID}?api_key=hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD`);
-  const myJson = await resp.json();
-  const myURL = myJson.data.images.original.url;
+  try {
+    const resp = await fetch(`https://api.giphy.com/v1/gifs/${gifID}?api_key=hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD`);
+    const myJson = await resp.json();
+    const myURL = myJson.data.images.original.url;
 
-  // eslint-disable-next-line no-console
-  console.log(myURL);
+    // eslint-disable-next-line no-console
+    console.log(myURL);
+
+    loader.src = "https://svgur.com/i/WG0.svg";
+    textContentVideo.textContent = "GIFO subido con éxito";
+
+    const iconsContainer = document.createElement("div");
+    iconsContainer.className = "iconsContainer";
+
+    const downloadContainer = document.createElement("div");
+    downloadContainer.className = "downloadContainer";
+
+    const linkContainer = document.createElement("div");
+    linkContainer.className = "linkContainer";
+
+    textContainerVideo.appendChild(iconsContainer);
+    iconsContainer.append(linkContainer, downloadContainer);
+
+    const downloadIcon = document.createElement("img");
+    downloadIcon.src = "https://svgur.com/i/WEz.svg";
+    downloadContainer.appendChild(downloadIcon);
+
+    const linkIcon = document.createElement("img");
+    linkIcon.src = "https://svgur.com/i/WGB.svg";
+    linkContainer.appendChild(linkIcon);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 const actionBtnStartRecord4 = async () => {
@@ -86,12 +117,13 @@ const actionBtnStartRecord4 = async () => {
   loader.style = "width: 22px; height: 22px; z-index: 999999; position: absolute; left: calc(50% - 15px); bottom: 50%;";
   loader.src = "https://svgur.com/i/WFL.svg";
   textContainerVideo.appendChild(loader);
-  // loader.src = "https://svgur.com/i/WG0.svg";
+
+  btnStartRecord.style = "display: none;";
+  timer.style = "display: none;";
 
   textContentVideo.style = "font-size: 15px; color: #FFFFFF; z-index: 999999; position: absolute; left: calc(50% - 85px); bottom: calc(50% - 40px);";
   textContentVideo.textContent = "Estamos subiendo tu GIFO";
   textContainerVideo.appendChild(textContentVideo);
-  // textContentVideo.textContent = "GIFO subido con éxito";
 
   titleCreateGifos.style = "opacity: 0;";
   textCreateGifos.style = "opacity: 0;";
@@ -113,6 +145,19 @@ const actionBtnStartRecord3 = () => {
     // eslint-disable-next-line no-console
     console.log(form.get("file"));
   });
+
+  const repeatGif = () => {
+    timer.textContent = "00:00:00";
+    timer.style = "";
+    timePaused();
+    milliseconds = 0;
+    chronometer = 0;
+    btnStartRecord.removeEventListener("click", actionBtnStartRecord4);
+    timer.removeEventListener("click", repeatGif);
+    form = new FormData();
+    actionBtnStartRecord();
+  };
+  timer.addEventListener("click", repeatGif);
 };
 
 const actionBtnStartRecord2 = () => {
