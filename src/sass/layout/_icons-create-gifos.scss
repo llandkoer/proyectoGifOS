@@ -1,0 +1,30 @@
+.iconsContainer {
+  position: absolute;
+  top: 11px;
+  right: 35px;
+
+  display: flex;
+
+  z-index: 999999;
+}
+.downloadContainer,
+.linkContainer {
+  width: 32px;
+  height: 32px;
+
+  @include flex(row, center, center);
+
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid $black;
+  opacity: 0.7;
+}
+
+.downloadContainer:hover,
+.linkContainer:hover {
+  opacity: 1;
+}
+
+.linkContainer {
+  margin-right: 10px;
+}

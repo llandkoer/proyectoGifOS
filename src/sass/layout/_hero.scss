@@ -10,7 +10,7 @@
     line-height: 3.3rem;
 
     body.dark & {
-    color: $white;
+      color: $white;
     }
     .hero__h1-word {
       color: $blue;
@@ -39,14 +39,14 @@
 
     body.dark & {
       background: transparent;
-      border: 1px solid $white
+      border: 1px solid $white;
     }
 
     .search-bar {
       width: 80%;
       height: 22px;
       border: none;
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       font-size: 1.6rem;
       font-weight: 400;
       color: $black;
@@ -55,6 +55,7 @@
 
       body.dark & {
         background: transparent;
+        color: $white;
       }
     }
     .button-search {
@@ -158,8 +159,19 @@
     color: $purple;
 
     body.dark & {
-    color: $white;
+      color: $white;
     }
+  }
+
+  .hero__divider {
+    width: 45%;
+    height: 1px;
+
+    margin: 0 auto;
+    margin-top: 35px;
+
+    opacity: 0.5;
+    border: 1px solid $place-holder;
   }
 }
 
@@ -172,7 +184,7 @@
       margin-top: 75px;
       margin-bottom: 35px;
       font-size: 3.5rem;
-      line-height: 5.0rem;
+      line-height: 5rem;
     }
     .hero__img {
       max-width: 400px;
@@ -180,13 +192,16 @@
     }
     .container-search-gifos {
       width: 550px;
-    } 
+    }
     .hero__h3 {
       font-size: 1.8rem;
     }
     .hero__p {
       max-width: 450px;
       font-size: 1.6rem;
+    }
+    .hero__divider {
+      width: 22%;
     }
   }
 }

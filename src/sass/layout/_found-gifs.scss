@@ -1,0 +1,230 @@
+.found-gifs {
+  padding-left: 5.6%;
+  padding-right: 5.6%;
+
+  @include flex(column, center, center);
+
+  margin-top: 43px;
+
+  .found-gifs__keyword {
+    margin-bottom: 38px;
+
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $purple;
+    text-align: center;
+    line-height: 40px;
+
+    body.dark & {
+      color: $white;
+    }
+  }
+  .found-gifs__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 156px);
+    grid-gap: 21px;
+
+    .found-gifs__gif-container {
+      height: 120px;
+      position: relative;
+
+      overflow-x: hidden;
+
+      .found-gifs__gif {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+      }
+
+      .found-gifs__hover {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: none;
+
+        background-color: $purple;
+        opacity: 0.7;
+        z-index: 99;
+      }
+
+      .found-gifs__icons {
+        width: 100%;
+        height: 32px;
+        position: absolute;
+        top: 10px;
+        right: 5;
+
+        display: flex;
+        justify-content: flex-end;
+
+        z-index: 999;
+
+        .found-gifs__icon-container {
+          width: 32px;
+          height: 32px;
+
+          margin-right: 5px;
+
+          display: none;
+          justify-content: center;
+          align-items: center;
+
+          opacity: 0.7;
+          background-color: $white;
+
+          border-radius: 6px;
+          z-index: 9999;
+
+          &:hover {
+            opacity: 1;
+          }
+
+          &:active {
+            opacity: 1;
+
+            .found-gifs__first-icon {
+              background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart-full.svg");
+            }
+          }
+          .found-gifs__first-icon,
+          .found-gifs__second-icon,
+          .found-gifs__last-icon {
+            width: 15px;
+            height: 13.25px;
+
+            display: block;
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+
+          .found-gifs__first-icon {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart.svg");
+          }
+
+          .found-gifs__second-icon {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-download.svg");
+          }
+
+          .found-gifs__last-icon {
+            background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-max.svg");
+          }
+        }
+      }
+
+      .found-gifs__text {
+        width: 100%;
+        position: absolute;
+        top: 65%;
+
+        display: none;
+
+        z-index: 999;
+        .found-gifs__user {
+          margin-left: 13px;
+          margin-bottom: 5px;
+
+          color: $white;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.5rem;
+        }
+
+        .found-gifs__title {
+          margin-left: 13px;
+
+          color: $white;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.6rem;
+          font-weight: bold;
+        }
+      }
+
+      &:hover {
+        .found-gifs__text {
+          display: block;
+        }
+
+        .found-gifs__icon-container {
+          display: flex;
+        }
+
+        .found-gifs__hover {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .found-gifs__show-more{
+    width: 127px;
+    height: 50px;
+
+    margin-top: 78px;
+
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $purple;
+    text-transform: uppercase;
+
+    background-color: transparent;
+    border: 2px solid $purple;
+    border-radius: 25px;
+
+    body.dark & {
+      color: $white;
+
+      border: 2px solid $white;
+
+      &:hover{
+        color: $black;
+
+        background-color: $white;
+      }
+    }
+
+    &:hover{
+      color: $white;
+
+      background-color: $purple;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .found-gifs {
+    .found-gifs__grid {
+      grid-template-columns: repeat(3, 157px);
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .found-gifs {
+    .found-gifs__keyword {
+      font-size: 3.5rem;
+    }
+
+    .found-gifs__grid {
+      grid-template-columns: repeat(4, 220px);
+      .found-gifs__gif-container {
+        height: 200px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .found-gifs {
+    .found-gifs__grid {
+      grid-template-columns: repeat(4, 260px);
+      .found-gifs__gif-container {
+        height: 200px;
+      }
+    }
+  }
+}
