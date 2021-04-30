@@ -1,7 +1,7 @@
 const $sliderContainer = document.querySelector(".slider__container");
 
 const API_KEY = "hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD";
-const MAXIMUM_GIFS = 10;
+const MAXIMUM_GIFS = 20;
 const TRENDINGS_ENDPOINT = `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=${MAXIMUM_GIFS}`;
 
 async function getTrendings(url) {
