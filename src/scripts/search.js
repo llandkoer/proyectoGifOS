@@ -105,7 +105,6 @@ const executeFetchSearch = () => {
     const SEARCH_ENDPOINT = `https://api.giphy.com/v1/gifs/search?api_key=${MY_API_KEY}&q=${$inputSearcher.value}`;
     $keywordText.textContent = $inputSearcher.value;
     $showMore.style = "";
-    // $searchContainer.innerHTML = ;
     getSearch(SEARCH_ENDPOINT);
   } else {
     $keywordText.textContent = "";
@@ -113,8 +112,24 @@ const executeFetchSearch = () => {
   }
 };
 
+const executeFetchSearch2 = (event) => {
+  if (event.keyCode === 13) {
+    $searchContainer.innerHTML = "";
+    MAXIMUM_GIFS2 = -12;
+    if ($inputSearcher.value) {
+      const SEARCH_ENDPOINT = `https://api.giphy.com/v1/gifs/search?api_key=${MY_API_KEY}&q=${$inputSearcher.value}`;
+      $keywordText.textContent = $inputSearcher.value;
+      $showMore.style = "";
+      getSearch(SEARCH_ENDPOINT);
+    } else {
+      $keywordText.textContent = "";
+      $showMore.style = "display: none;";
+    }
+  }
+};
+
 $iconSearch.addEventListener("click", executeFetchSearch);
-// $inputSearcher.addEventListener("keyup", executeFetchSearch);
+$inputSearcher.addEventListener("keydown", executeFetchSearch2);
 
 // Categories
 
