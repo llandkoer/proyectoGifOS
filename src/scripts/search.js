@@ -1,48 +1,30 @@
-/* eslint-disable no-console */
-// const $inputContainer = document.querySelector(".container-search-gifos");
 const $inputSearcher = document.querySelector(".search-bar");
 const $iconSearch = document.querySelector("#button-search");
-const $showMore = document.querySelector(".found-gifs__show-more");
-$showMore.style = "display: none;";
+const $buttonParent = document.querySelector(".found-gifs");
+const $showMore = document.createElement("button");
+$showMore.textContent = "Ver más";
+$showMore.className = "found-gifs__show-more";
+$buttonParent.appendChild($showMore);
 const $searchContainer = document.querySelector(".found-gifs__grid");
 const $keywordText = document.querySelector(".found-gifs__keyword");
-const $reactions = document.querySelector("#reactions");
-const $entertainment = document.querySelector("#entertainment");
-const $sports = document.querySelector("#sports");
-const $stickers = document.querySelector("#stickers");
-const $artists = document.querySelector("#artists");
-$reactions.style = "cursor: pointer;";
-$entertainment.style = "cursor: pointer;";
-$sports.style = "cursor: pointer;";
-$stickers.style = "cursor: pointer;";
-$artists.style = "cursor: pointer;";
 
 const MY_API_KEY = "hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD";
 
-let MAXIMUM_GIFS2;
-// let MAXIMUM_GIFS2 = -12;
+const itemsPerLoad = 12;
+let firstIndex = 0;
+let lastIndex = 0;
+let gifs;
 
-// const showMore = () => {
-//   MAXIMUM_GIFS2 -= 12;
-//   console.log(MAXIMUM_GIFS2);
-// };
-
-// $showMore.addEventListener("click", showMore);
-
-async function getSearch(url) {
-  const response = await fetch(url);
-  const json = await response.json();
-  const query = json.data;
-
-  query.slice(MAXIMUM_GIFS2).forEach((element) => {
+function displaySearch() {
+  for (let i = firstIndex; i < lastIndex; i += 1) {
     const $gifContainer = document.createElement("div");
     $gifContainer.className = "found-gifs__gif-container";
     $searchContainer.appendChild($gifContainer);
 
     const $myGif = document.createElement("img");
     $myGif.className = "found-gifs__gif";
-    $myGif.src = element.images.original.url;
-    $myGif.alt = element.title;
+    $myGif.src = gifs[i].images.original.url;
+    $myGif.alt = gifs[i].title;
     $gifContainer.appendChild($myGif);
 
     const $purpleBg = document.createElement("div");
@@ -80,31 +62,50 @@ async function getSearch(url) {
 
     const $searchUser = document.createElement("p");
     $searchUser.className = "found-gifs__user";
-    if (element.username === "") {
+    if (gifs[i].username === "") {
       $searchUser.textContent = "Desconocido";
     } else {
-      $searchUser.textContent = element.username;
+      $searchUser.textContent = gifs[i].username;
     }
     $searchText.appendChild($searchUser);
 
     const $searchTitle = document.createElement("p");
     $searchTitle.className = "found-gifs__title";
-    if (element.title === "") {
+    if (gifs[i].title === "") {
       $searchTitle.textContent = "Un GIF sin título";
     } else {
-      $searchTitle.textContent = element.title;
+      $searchTitle.textContent = gifs[i].title;
     }
     $searchText.appendChild($searchTitle);
-  });
+    if (lastIndex >= 48) {
+      $showMore.style = "display: none";
+    }
+  }
+  firstIndex += itemsPerLoad;
+  lastIndex = firstIndex + itemsPerLoad;
+}
+
+async function getSearch(url) {
+  try {
+    const res = await fetch(url);
+    const json = await res.json();
+    gifs = json.data;
+    displaySearch();
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  }
 }
 
 const executeFetchSearch = () => {
+  firstIndex = 0;
+  lastIndex = itemsPerLoad;
   $searchContainer.innerHTML = "";
-  MAXIMUM_GIFS2 = -12;
+
   if ($inputSearcher.value) {
     const SEARCH_ENDPOINT = `https://api.giphy.com/v1/gifs/search?api_key=${MY_API_KEY}&q=${$inputSearcher.value}`;
     $keywordText.textContent = $inputSearcher.value;
-    $showMore.style = "";
+    $showMore.style = "display: block;";
     getSearch(SEARCH_ENDPOINT);
   } else {
     $keywordText.textContent = "";
@@ -114,12 +115,13 @@ const executeFetchSearch = () => {
 
 const executeFetchSearch2 = (event) => {
   if (event.keyCode === 13) {
+    firstIndex = 0;
+    lastIndex = itemsPerLoad;
     $searchContainer.innerHTML = "";
-    MAXIMUM_GIFS2 = -12;
     if ($inputSearcher.value) {
       const SEARCH_ENDPOINT = `https://api.giphy.com/v1/gifs/search?api_key=${MY_API_KEY}&q=${$inputSearcher.value}`;
       $keywordText.textContent = $inputSearcher.value;
-      $showMore.style = "";
+      $showMore.style = "display: block;";
       getSearch(SEARCH_ENDPOINT);
     } else {
       $keywordText.textContent = "";
@@ -129,131 +131,74 @@ const executeFetchSearch2 = (event) => {
 };
 
 $iconSearch.addEventListener("click", executeFetchSearch);
-$inputSearcher.addEventListener("keydown", executeFetchSearch2);
+$inputSearcher.addEventListener("keyup", executeFetchSearch2);
+$showMore.addEventListener("click", displaySearch);
 
-// Categories
+// Suggestions
 
-async function getData(url) {
-  const response = await fetch(url);
-  const json = await response.json();
-  const query = json.data;
+const $breaker = document.querySelector(".hero__breaker");
+const $list = document.querySelector(".hero__list");
+let suggestions;
 
-  query.slice(MAXIMUM_GIFS2).forEach((element) => {
-    const $gifContainer = document.createElement("div");
-    $gifContainer.className = "found-gifs__gif-container";
-    $searchContainer.appendChild($gifContainer);
-
-    const $myGif = document.createElement("img");
-    $myGif.className = "found-gifs__gif";
-    $myGif.src = element.gif.images.original.url;
-    $myGif.alt = element.title;
-    $gifContainer.appendChild($myGif);
-
-    const $purpleBg = document.createElement("div");
-    $purpleBg.className = "found-gifs__hover";
-    $gifContainer.appendChild($purpleBg);
-
-    const $searchIcons = document.createElement("div");
-    $searchIcons.className = "found-gifs__icons";
-    $gifContainer.appendChild($searchIcons);
-
-    const $firstSearchIconContainer = document.createElement("div");
-    $firstSearchIconContainer.className = "found-gifs__icon-container";
-    $searchIcons.appendChild($firstSearchIconContainer);
-    const $firstSearchIcon = document.createElement("span");
-    $firstSearchIcon.className = "found-gifs__first-icon";
-    $firstSearchIconContainer.appendChild($firstSearchIcon);
-
-    const $secondSearchIconContainer = document.createElement("div");
-    $secondSearchIconContainer.className = "found-gifs__icon-container";
-    $searchIcons.appendChild($secondSearchIconContainer);
-    const $secondSearchIcon = document.createElement("span");
-    $secondSearchIcon.className = "found-gifs__second-icon";
-    $secondSearchIconContainer.appendChild($secondSearchIcon);
-
-    const $lastSearchIconContainer = document.createElement("div");
-    $lastSearchIconContainer.className = "found-gifs__icon-container";
-    $searchIcons.appendChild($lastSearchIconContainer);
-    const $lastSearchIcon = document.createElement("span");
-    $lastSearchIcon.className = "found-gifs__last-icon";
-    $lastSearchIconContainer.appendChild($lastSearchIcon);
-
-    const $searchText = document.createElement("div");
-    $searchText.className = "found-gifs__text";
-    $gifContainer.appendChild($searchText);
-
-    const $searchUser = document.createElement("p");
-    $searchUser.className = "found-gifs__user";
-    if (element.gif.username === "") {
-      $searchUser.textContent = "Desconocido";
-    } else {
-      $searchUser.textContent = element.gif.username;
-    }
-    $searchText.appendChild($searchUser);
-
-    const $searchTitle = document.createElement("p");
-    $searchTitle.className = "found-gifs__title";
-    if (element.gif.title === "") {
-      $searchTitle.textContent = "Un GIF sin título";
-    } else {
-      $searchTitle.textContent = element.gif.title;
-    }
-    $searchText.appendChild($searchTitle);
-  });
+async function getSuggestions(url) {
+  try {
+    const respon = await fetch(url);
+    const theJson = await respon.json();
+    suggestions = theJson.data;
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  }
 }
 
-const executeFetchCategoriesReactions = () => {
-  $searchContainer.innerHTML = "";
-  MAXIMUM_GIFS2 = -12;
+async function createListItems() {
+  try {
+    const SUGGESTIONS_ENDPOINT = `https://api.giphy.com/v1/gifs/search/tags?api_key=${MY_API_KEY}&limit=4&q=${$inputSearcher.value}`;
+    await getSuggestions(SUGGESTIONS_ENDPOINT);
+    $breaker.style = "display: block;";
+    $list.style = "display: flex;";
+    suggestions.forEach((item) => {
+      const $listItem = document.createElement("li");
+      $listItem.className = "hero__list-item";
+      $list.appendChild($listItem);
+      $listItem.addEventListener("click", () => {
+        $inputSearcher.value = item.name;
+        $searchContainer.innerHTML = "";
+        firstIndex = 0;
+        lastIndex = itemsPerLoad;
 
-  const CATEGORIES_ENDPOINT = `https://api.giphy.com/v1/gifs/categories/reactions?api_key=${MY_API_KEY}`;
-  $keywordText.textContent = $reactions.textContent;
-  $showMore.style = "";
-  getData(CATEGORIES_ENDPOINT);
-};
+        if ($inputSearcher.value) {
+          const SEARCH_ENDPOINT = `https://api.giphy.com/v1/gifs/search?api_key=${MY_API_KEY}&q=${$inputSearcher.value}`;
+          $keywordText.textContent = $inputSearcher.value;
+          $showMore.style = "display: block;";
+          getSearch(SEARCH_ENDPOINT);
+        } else {
+          $keywordText.textContent = "";
+          $showMore.style = "display: none;";
+        }
+      });
 
-const executeFetchCategoriesEntertainment = () => {
-  $searchContainer.innerHTML = "";
-  MAXIMUM_GIFS2 = -12;
+      const $suggestionIcon = document.createElement("i");
+      $suggestionIcon.className = "fas fa-search";
+      $listItem.appendChild($suggestionIcon);
 
-  const CATEGORIES_ENDPOINT = `https://api.giphy.com/v1/gifs/categories/entertainment?api_key=${MY_API_KEY}`;
-  $keywordText.textContent = $entertainment.textContent;
-  $showMore.style = "";
-  getData(CATEGORIES_ENDPOINT);
-};
+      const $suggestion = document.createElement("span");
+      $suggestion.className = "hero__suggestion";
+      $suggestion.textContent = item.name;
+      $listItem.appendChild($suggestion);
+    });
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  }
+}
 
-const executeFetchCategoriesSports = () => {
-  $searchContainer.innerHTML = "";
-  MAXIMUM_GIFS2 = -12;
-
-  const CATEGORIES_ENDPOINT = `https://api.giphy.com/v1/gifs/categories/sports?api_key=${MY_API_KEY}`;
-  $keywordText.textContent = $sports.textContent;
-  $showMore.style = "";
-  getData(CATEGORIES_ENDPOINT);
-};
-
-const executeFetchCategoriesStickers = () => {
-  $searchContainer.innerHTML = "";
-  MAXIMUM_GIFS2 = -12;
-
-  const CATEGORIES_ENDPOINT = `https://api.giphy.com/v1/gifs/categories/stickers?api_key=${MY_API_KEY}`;
-  $keywordText.textContent = $stickers.textContent;
-  $showMore.style = "";
-  getData(CATEGORIES_ENDPOINT);
-};
-
-const executeFetchCategoriesArtists = () => {
-  $searchContainer.innerHTML = "";
-  MAXIMUM_GIFS2 = -12;
-
-  const CATEGORIES_ENDPOINT = `https://api.giphy.com/v1/gifs/categories/artists?api_key=${MY_API_KEY}`;
-  $keywordText.textContent = $artists.textContent;
-  $showMore.style = "";
-  getData(CATEGORIES_ENDPOINT);
-};
-
-$reactions.addEventListener("click", executeFetchCategoriesReactions);
-$entertainment.addEventListener("click", executeFetchCategoriesEntertainment);
-$sports.addEventListener("click", executeFetchCategoriesSports);
-$stickers.addEventListener("click", executeFetchCategoriesStickers);
-$artists.addEventListener("click", executeFetchCategoriesArtists);
+$inputSearcher.addEventListener("keyup", () => {
+  if ($inputSearcher.value !== "") {
+    $list.innerHTML = "";
+    createListItems();
+  } else {
+    $breaker.style = "display: none;";
+    $list.style = "display: none;";
+  }
+});
