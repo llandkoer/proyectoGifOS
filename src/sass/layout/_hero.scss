@@ -24,7 +24,7 @@
   }
 
   .container-search-gifos {
-    width: 100%;
+    width: 550px;
     max-width: 334px;
     height: auto;
     position: relative;
@@ -52,6 +52,7 @@
       color: $black;
       margin: 15px 5px 13px 55px;
       outline: none;
+      margin-left: 43px;
 
       body.dark & {
         background: transparent;
@@ -117,6 +118,44 @@
       width: 100%;
       &.activeSection {
         display: block;
+      }
+    }
+
+    .hero__breaker {
+      width: 90%;
+      display: none;
+
+      margin: 0 auto;
+      margin-top: -20px;
+
+      opacity: 0.5;
+      border: 1px solid $place-holder;
+    }
+
+    .hero__list{
+      width: 90%;
+      display: none;
+
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      margin: 0 auto;
+
+      list-style: none;
+      cursor: pointer;
+
+      .hero__list-item{
+        margin-bottom: 15px;
+
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: $place-holder;
+
+        .hero__suggestion{
+          margin-left: 8px;
+        }
       }
     }
   }
