@@ -67,7 +67,14 @@ for (let i = 0; i < theFavorites.length; i += 1) {
 
   $favoritesFirstIconContainer.addEventListener("click", () => {
     $favoritesContainer.removeChild($favoritesItem);
-    theFavorites.pop(theFavorites[i]);
+
+    const itemToDelete = theFavorites.find((item) => item.title === theFavorites[i].title);
+
+    const arrayIndex = theFavorites.indexOf(itemToDelete);
+    if (arrayIndex !== -1) {
+      theFavorites.splice(arrayIndex, 1);
+    }
+
     localStorage.setItem("favorites", JSON.stringify(theFavorites));
   });
 }

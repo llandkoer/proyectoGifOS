@@ -18,6 +18,16 @@ $artists.style = "cursor: pointer;";
 
 const THE_API_KEY = "hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD";
 
+document.querySelector("#favorites").onclick = () => {
+  if (localStorage.getItem("favorites")) {
+    const alreadySavedItems = JSON.parse(localStorage.getItem("favorites"));
+    // eslint-disable-next-line no-undef
+    allFavorites.push(...alreadySavedItems);
+  }
+  // eslint-disable-next-line no-undef
+  localStorage.setItem("favorites", JSON.stringify(allFavorites));
+};
+
 const itemsPerLoadCategories = 12;
 let firstIndexCategories = 0;
 let lastIndexCategories = 0;
@@ -90,6 +100,37 @@ function displayCategories() {
     if (lastIndexCategories >= gifsCategories.length) {
       $showMore2.style = "display: none";
     }
+
+    // eslint-disable-next-line no-loop-func
+    const putItemInFavorites = () => {
+      $firstSearchIcon.style = `background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart-full.svg");`;
+
+      // eslint-disable-next-line no-undef
+      allFavorites.push(gifsCategories[j].gif);
+      // localStorage.setItem(`favorite${i}`, JSON.stringify(gifs[i]));
+
+      $firstSearchIconContainer.removeEventListener("click", putItemInFavorites);
+      // eslint-disable-next-line no-use-before-define
+      $firstSearchIconContainer.addEventListener("click", removeItemFromFavorites);
+    };
+
+    // eslint-disable-next-line no-loop-func
+    const removeItemFromFavorites = () => {
+      $firstSearchIcon.style = `background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart.svg");`;
+
+      // eslint-disable-next-line no-undef
+      if (allFavorites.includes(gifsCategories[j].gif)) {
+        // eslint-disable-next-line no-undef
+        allFavorites.pop(gifsCategories[j].gif);
+      }
+
+      // eslint-disable-next-line no-undef
+      $firstSearchIconContainer.removeEventListener("click", removeItemFromFavorites);
+      // eslint-disable-next-line no-undef
+      $firstSearchIconContainer.addEventListener("click", putItemInFavorites);
+    };
+
+    $firstSearchIconContainer.addEventListener("click", putItemInFavorites);
   }
   firstIndexCategories += itemsPerLoadCategories;
   lastIndexCategories = firstIndexCategories + itemsPerLoadCategories;
