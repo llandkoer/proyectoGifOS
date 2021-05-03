@@ -7,6 +7,8 @@ btnSwitch.addEventListener("click", () => {
   document.body.classList.toggle("dark");
 
   if (document.body.classList.contains("dark") === true) {
+    localStorage.setItem("dark-mode", "true");
+
     btnSwitch.textContent = "Modo Diurno";
 
     logo.src = "../src/assets/logo-dark-mode.svg";
@@ -14,9 +16,9 @@ btnSwitch.addEventListener("click", () => {
     camera.src = "../src/assets/illustration-camera-dark.svg";
 
     movie.src = "../src/assets/Illustration-movie-dark.svg";
-
-    localStorage.setItem("dark-mode", "true");
   } else {
+    localStorage.setItem("dark-mode", "false");
+
     btnSwitch.textContent = "Modo Nocturno";
 
     logo.src = "../src/assets/logo.svg";
@@ -24,8 +26,6 @@ btnSwitch.addEventListener("click", () => {
     camera.src = "../src/assets/illustration-camera.svg";
 
     movie.src = "../src/assets/illustration-movie.svg";
-
-    localStorage.setItem("dark-mode", "false");
   }
 });
 
