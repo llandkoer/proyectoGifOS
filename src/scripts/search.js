@@ -93,7 +93,7 @@ async function getSearch(url) {
     displaySearch();
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -147,7 +147,7 @@ async function getSuggestions(url) {
     suggestions = theJson.data;
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -189,7 +189,7 @@ async function createListItems() {
     });
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.log(error);
+    console.error(error);
   }
 }
 
