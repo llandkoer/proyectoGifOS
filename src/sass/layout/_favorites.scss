@@ -28,6 +28,7 @@
       height: 120px;
       margin-bottom: 21px;
       position: relative;
+      overflow: hidden;
 
       .favorites__img {
         width: 100%;
@@ -122,12 +123,10 @@
           font-family: "Roboto", sans-serif;
           font-size: 1.5rem;
         }
-        .favorites__title {
-          margin-left: 13px;
-
+        .favorites__title{
           color: white;
           font-family: "Roboto", sans-serif;
-          font-size: 1.6rem;
+          font-size: 1.4rem;
         }
       }
 
@@ -192,14 +191,16 @@
         .favorites__text {
           top: 120px;
           .favorites__p {
-            margin-right: 20px;
+            margin-left: 13px;
             font-size: 1.5rem;
             line-height: 1.8rem;
+            text-align: left;
           }
           .favorites__title {
-            margin-right: 20px;
+            margin-left: 13px;
             font-size: 1.6rem;
             line-height: 1.9rem;
+            text-align: left;
           }
         }
       }

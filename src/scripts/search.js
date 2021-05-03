@@ -10,6 +10,16 @@ const $keywordText = document.querySelector(".found-gifs__keyword");
 
 const MY_API_KEY = "hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD";
 
+const allFavorites = [];
+
+document.querySelector("#favorites").onclick = () => {
+  if (localStorage.getItem("favorites")) {
+    const alreadySavedItems = JSON.parse(localStorage.getItem("favorites"));
+    allFavorites.push(...alreadySavedItems);
+  }
+  localStorage.setItem("favorites", JSON.stringify(allFavorites));
+};
+
 const itemsPerLoad = 12;
 let firstIndex = 0;
 let lastIndex = 0;
@@ -80,6 +90,34 @@ function displaySearch() {
     if (lastIndex >= 48) {
       $showMore.style = "display: none";
     }
+
+    // eslint-disable-next-line no-loop-func
+    const putItemInFavorites = () => {
+      $firstSearchIcon.style = `background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart-full.svg");`;
+
+      allFavorites.push(gifs[i]);
+      // localStorage.setItem(`favorite${i}`, JSON.stringify(gifs[i]));
+
+      $firstSearchIconContainer.removeEventListener("click", putItemInFavorites);
+      // eslint-disable-next-line no-use-before-define
+      $firstSearchIconContainer.addEventListener("click", removeItemFromFavorites);
+    };
+
+    // eslint-disable-next-line no-loop-func
+    const removeItemFromFavorites = () => {
+      $firstSearchIcon.style = `background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart.svg");`;
+
+      if (allFavorites.includes(gifs[i])) {
+        allFavorites.pop(gifs[i]);
+      }
+
+      // eslint-disable-next-line no-undef
+      $firstSearchIconContainer.removeEventListener("click", removeItemFromFavorites);
+      // eslint-disable-next-line no-undef
+      $firstSearchIconContainer.addEventListener("click", putItemInFavorites);
+    };
+
+    $firstSearchIconContainer.addEventListener("click", putItemInFavorites);
   }
   firstIndex += itemsPerLoad;
   lastIndex = firstIndex + itemsPerLoad;
