@@ -8,7 +8,7 @@
     justify-content: flex-end;
     width: 280px;
     .img__gifo-close {
-      margin: 60px 0;
+      margin: 25px 0px;
       width: 15px;
       height: 15px;
     }
@@ -55,7 +55,11 @@
 @media screen and (min-width:1024px) {
   .open__gifo {
     .open__gifo-close {
-      width: 850px
+      width: 850px;
+
+      .img__gifo-close{
+        margin: 45px 25px;
+      }
     }
     .open__gifo-img {
       .img__open-gifo {
@@ -65,7 +69,6 @@
       }
     }
     .open__gifo-text {
-      margin-top: 30px;
       .open__gifo-word {
         margin-right: 600px;
       }

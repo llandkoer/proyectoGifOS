@@ -4,6 +4,7 @@
 
   margin-top: 45px;
   padding-top: 46px;
+  padding-bottom: 82px;
 
   background: #f3f5f8;
 
@@ -151,7 +152,7 @@
         display: none;
 
         position: absolute;
-        top: 181px;
+        top: 130px;
 
         .slider__p {
           margin-left: 13px;
@@ -193,6 +194,7 @@
     padding-bottom: 182px;
     padding-top: 67px;
     margin-top: 137px;
+
     .slider__h2 {
       margin-bottom: 12px;
       font-size: 2.5rem;
@@ -282,5 +284,8 @@
         }
       }
     }
+  }
+  .slider .slider__container .slider__item:hover .slider__text{
+    top: 195px;
   }
 }
