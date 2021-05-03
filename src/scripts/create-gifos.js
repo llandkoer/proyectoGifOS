@@ -19,6 +19,20 @@ const watch = timer;
 let milliseconds = 0;
 let chronometer;
 
+const allMyGifos = [];
+
+window.onbeforeunload = function saveInLocalStoreWhenReloadPage() {
+  // Ejecutar función que guarda en el localStorage
+};
+
+document.querySelector("#mis-gifos").onclick = () => {
+  if (localStorage.getItem("myGifos")) {
+    const alreadySavedItems = JSON.parse(localStorage.getItem("myGifos"));
+    allMyGifos.push(...alreadySavedItems);
+  }
+  localStorage.setItem("myGifos", JSON.stringify(allMyGifos));
+};
+
 function timeStart() {
   clearInterval(chronometer);
   chronometer = setInterval(() => {
@@ -76,10 +90,9 @@ async function getMyGif() {
   try {
     const resp = await fetch(`https://api.giphy.com/v1/gifs/${gifID}?api_key=hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD`);
     const myJson = await resp.json();
-    const myURL = myJson.data.images.original.url;
+    const myGifoData = myJson.data;
 
-    // eslint-disable-next-line no-console
-    console.log(myURL);
+    allMyGifos.push(myGifoData);
 
     loader.src = "https://svgur.com/i/WG0.svg";
     textContentVideo.textContent = "GIFO subido con éxito";
