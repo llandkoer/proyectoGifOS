@@ -1,5 +1,10 @@
 const favoritesAsString = localStorage.getItem("favorites");
-const theFavorites = JSON.parse(favoritesAsString);
+const otherFavoritesAsString = localStorage.getItem("someFavorites");
+
+const firstArrayParsed = JSON.parse(favoritesAsString);
+const secondArrayParsed = JSON.parse(otherFavoritesAsString);
+
+const theFavorites = [...firstArrayParsed, ...secondArrayParsed];
 
 const $favoritesContainer = document.querySelector(".favorites__father");
 

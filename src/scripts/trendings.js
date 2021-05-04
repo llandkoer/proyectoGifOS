@@ -4,6 +4,23 @@ const API_KEY = "hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD";
 const MAXIMUM_GIFS = 20;
 const TRENDINGS_ENDPOINT = `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=${MAXIMUM_GIFS}`;
 
+const favoritesArray = [];
+
+const addToTheFavoritesSection = () => {
+  if (localStorage.getItem("someFavorites")) {
+    const alreadySavedItems = JSON.parse(localStorage.getItem("someFavorites"));
+    favoritesArray.push(...alreadySavedItems);
+  }
+  const itemsMap2 = favoritesArray.map((item) => [item.id, item]);
+  const itemsMapArr2 = new Map(itemsMap2);
+
+  const uniques = [...itemsMapArr2.values()];
+  localStorage.setItem("someFavorites", JSON.stringify(uniques));
+};
+
+const $header = document.querySelector("#header");
+$header.addEventListener("click", addToTheFavoritesSection);
+
 async function getTrendings(url) {
   const resp = await fetch(url);
   const json = await resp.json();
@@ -65,6 +82,32 @@ async function getTrendings(url) {
     $sliderTitle.className = "slider__title";
     $sliderTitle.textContent = element.title;
     $sliderText.appendChild($sliderTitle);
+
+    const addToFavorites = () => {
+      $firstIcon.style = `background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart-full.svg");`;
+
+      favoritesArray.push(element);
+
+      // eslint-disable-next-line no-unused-vars
+      $firstIconContainer.removeEventListener("click", addToFavorites);
+      // eslint-disable-next-line no-use-before-define
+      $firstIconContainer.addEventListener("click", removeFromFavorites);
+    };
+
+    const removeFromFavorites = () => {
+      $firstIcon.style = `background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart.svg");`;
+
+      if (favoritesArray.includes(element)) {
+        favoritesArray.pop(element);
+      }
+
+      // eslint-disable-next-line no-undef
+      $firstIconContainer.removeEventListener("click", removeFromFavorites);
+      // eslint-disable-next-line no-undef
+      $firstIconContainer.addEventListener("click", addToFavorites);
+    };
+
+    $firstIconContainer.addEventListener("click", addToFavorites);
   });
 }
 
