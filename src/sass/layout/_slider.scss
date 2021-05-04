@@ -228,6 +228,20 @@
         background-color: $white;
         border: 1px solid $purple;
 
+        &:first-child{
+        position: absolute;
+        z-index: 999;
+        top: calc(50% - 20px);
+        left: 40px;
+        }
+
+        &:nth-child(2){
+          position: absolute;
+          z-index: 999;
+          top: calc(50% - 20px);
+          right: 40px;
+        }
+
         body.dark & {
           background: transparent;
           border: 1px solid $white;
@@ -285,7 +299,7 @@
       }
     }
   }
-  .slider .slider__container .slider__item:hover .slider__text{
+  .slider .slider__container .slider__item:hover .slider__text {
     top: 195px;
   }
 }
