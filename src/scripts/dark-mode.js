@@ -13,19 +13,23 @@ btnSwitch.addEventListener("click", () => {
 
     logo.src = "../src/assets/logo-dark-mode.svg";
 
-    camera.src = "../src/assets/illustration-camera-dark.svg";
+    if (camera) {
+      camera.src = "../src/assets/illustration-camera-dark.svg";
 
-    movie.src = "../src/assets/Illustration-movie-dark.svg";
+      movie.src = "../src/assets/Illustration-movie-dark.svg";
+    }
   } else {
     localStorage.setItem("dark-mode", "false");
 
     btnSwitch.textContent = "Modo Nocturno";
 
+    if (camera) {
+      camera.src = "../src/assets/illustration-camera.svg";
+
+      movie.src = "../src/assets/illustration-movie.svg";
+    }
+
     logo.src = "../src/assets/logo.svg";
-
-    camera.src = "../src/assets/illustration-camera.svg";
-
-    movie.src = "../src/assets/illustration-movie.svg";
   }
 });
 
@@ -36,9 +40,11 @@ if (localStorage.getItem("dark-mode") === "true") {
 
   logo.src = "../src/assets/logo-dark-mode.svg";
 
-  camera.src = "../src/assets/illustration-camera-dark.svg";
+  if (camera) {
+    camera.src = "../src/assets/illustration-camera-dark.svg";
 
-  movie.src = "../src/assets/Illustration-movie-dark.svg";
+    movie.src = "../src/assets/Illustration-movie-dark.svg";
+  }
 } else {
   document.body.classList.remove("dark");
 }
