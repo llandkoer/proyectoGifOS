@@ -112,3 +112,16 @@ async function getTrendings(url) {
 }
 
 getTrendings(TRENDINGS_ENDPOINT);
+
+// Slider
+
+const $leftArrow = document.querySelector(".slider__arrow");
+const $rightArrow = document.querySelectorAll(".slider__arrow")[1];
+
+$leftArrow.addEventListener("click", () => {
+  $sliderContainer.scrollLeft -= 400;
+});
+
+$rightArrow.addEventListener("click", () => {
+  $sliderContainer.scrollLeft += 400;
+});
