@@ -17,7 +17,11 @@ document.querySelector("#favorites").onclick = () => {
     const alreadySavedItems = JSON.parse(localStorage.getItem("favorites"));
     allFavorites.push(...alreadySavedItems);
   }
-  localStorage.setItem("favorites", JSON.stringify(allFavorites));
+  const itemsMap = allFavorites.map((item) => [item.id, item]);
+  const itemsMapArr = new Map(itemsMap);
+
+  const uniques = [...itemsMapArr.values()];
+  localStorage.setItem("favorites", JSON.stringify(uniques));
 };
 
 const itemsPerLoad = 12;

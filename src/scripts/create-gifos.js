@@ -30,10 +30,10 @@ const saveOnLocalStorage = () => {
     allMyGifos.push(...alreadySavedItems);
   }
 
-  const personasMap = allMyGifos.map((item) => [item.id, item]);
-  const personasMapArr = new Map(personasMap); // Pares de clave y valor
+  const itemsMap = allMyGifos.map((item) => [item.id, item]);
+  const itemsMapArr = new Map(itemsMap);
 
-  const uniques = [...personasMapArr.values()]; // Conversión a un array
+  const uniques = [...itemsMapArr.values()];
 
   localStorage.setItem("myGifos", JSON.stringify(uniques));
   // localStorage.setItem("myGifos", JSON.stringify(allMyGifos));
