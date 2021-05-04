@@ -117,15 +117,31 @@ async function getMyGif() {
     linkContainer.className = "linkContainer";
 
     textContainerVideo.appendChild(iconsContainer);
-    iconsContainer.append(linkContainer, downloadContainer);
+    iconsContainer.append(downloadContainer, linkContainer);
 
     const downloadIcon = document.createElement("img");
-    downloadIcon.src = "https://svgur.com/i/WEz.svg";
+    downloadIcon.src = "https://svgur.com/i/WGB.svg";
     downloadContainer.appendChild(downloadIcon);
 
     const linkIcon = document.createElement("img");
-    linkIcon.src = "https://svgur.com/i/WGB.svg";
+    linkIcon.src = "https://svgur.com/i/WEz.svg";
     linkContainer.appendChild(linkIcon);
+
+    linkContainer.addEventListener("click", () => {
+      linkContainer.style = "opacity: 1;";
+
+      const text = `https://giphy.com/gifs/${gifID}`;
+
+      const el = document.createElement("textarea");
+      el.value = text;
+      el.setAttribute("readonly", "");
+      el.style.position = "absolute";
+      el.style.left = "-9999px";
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
+    });
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);
