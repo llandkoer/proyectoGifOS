@@ -12,7 +12,7 @@ const MY_API_KEY = "hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD";
 
 const allFavorites = [];
 
-document.querySelector("#favorites").onclick = () => {
+document.querySelector(".header__container--flex").onclick = () => {
   if (localStorage.getItem("favorites")) {
     const alreadySavedItems = JSON.parse(localStorage.getItem("favorites"));
     allFavorites.push(...alreadySavedItems);
