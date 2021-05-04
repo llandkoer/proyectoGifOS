@@ -21,17 +21,26 @@ let chronometer;
 
 const allMyGifos = [];
 
-window.onbeforeunload = function saveInLocalStoreWhenReloadPage() {
-  // Ejecutar función que guarda en el localStorage
-};
+const $header = document.querySelector(".header__container--flex");
 
-document.querySelector("#mis-gifos").onclick = () => {
+const saveOnLocalStorage = () => {
   if (localStorage.getItem("myGifos")) {
     const alreadySavedItems = JSON.parse(localStorage.getItem("myGifos"));
+
     allMyGifos.push(...alreadySavedItems);
   }
-  localStorage.setItem("myGifos", JSON.stringify(allMyGifos));
+
+  const personasMap = allMyGifos.map((item) => [item.id, item]);
+  const personasMapArr = new Map(personasMap); // Pares de clave y valor
+
+  const uniques = [...personasMapArr.values()]; // Conversión a un array
+
+  localStorage.setItem("myGifos", JSON.stringify(uniques));
+  // localStorage.setItem("myGifos", JSON.stringify(allMyGifos));
+  // $header.removeEventListener("click", saveOnLocalStorage);
 };
+
+$header.addEventListener("click", saveOnLocalStorage);
 
 function timeStart() {
   clearInterval(chronometer);
@@ -82,6 +91,7 @@ async function postData() {
     const json = await res.json();
     gifID = json.data.id;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 }
@@ -117,6 +127,7 @@ async function getMyGif() {
     linkIcon.src = "https://svgur.com/i/WGB.svg";
     linkContainer.appendChild(linkIcon);
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 }
