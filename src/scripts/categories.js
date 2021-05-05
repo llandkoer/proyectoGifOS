@@ -116,6 +116,75 @@ function displayCategories() {
       $showMore2.style = "display: none";
     }
 
+    // eslint-disable-next-line no-inner-declarations
+    function openFullscreen() {
+      if ($gifContainer.requestFullscreen) {
+        $gifContainer.requestFullscreen();
+      } else if ($gifContainer.webkitRequestFullscreen) {
+        $gifContainer.webkitRequestFullscreen();
+      } else if ($gifContainer.msRequestFullscreen) {
+        $gifContainer.msRequestFullscreen();
+      }
+    }
+
+    // eslint-disable-next-line no-inner-declarations
+    function closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    }
+
+    const makeAGifFullScreen = () => {
+      $gifContainer.id = "mainDiv";
+      $myGif.id = "theGif--";
+      $purpleBg.id = "theHoverDiv--";
+      $searchIcons.id = "sliderICons--";
+      $firstSearchIconContainer.id = "iconsContainers1--";
+      $secondSearchIconContainer.id = "iconsContainers2--";
+      $lastSearchIconContainer.id = "iconsContainers3--";
+      $firstSearchIcon.id = "firstIcon--";
+      $secondSearchIcon.id = "secondIcon--";
+      $lastSearchIcon.id = "lastIcon--";
+      $searchText.id = "textContainer--";
+      $searchUser.id = "textUser--";
+      $searchTitle.id = "textTitle--";
+
+      openFullscreen();
+
+      $lastSearchIconContainer.removeEventListener("click", makeAGifFullScreen);
+
+      // eslint-disable-next-line no-use-before-define
+      $lastSearchIconContainer.addEventListener("click", whenCloseFullScreen);
+    };
+
+    const whenCloseFullScreen = () => {
+      $gifContainer.removeAttribute("id");
+      $myGif.removeAttribute("id");
+      $purpleBg.removeAttribute("id");
+      $searchIcons.removeAttribute("id");
+      $firstSearchIconContainer.removeAttribute("id");
+      $secondSearchIconContainer.removeAttribute("id");
+      $lastSearchIconContainer.removeAttribute("id");
+      $firstSearchIcon.removeAttribute("id");
+      $secondSearchIcon.removeAttribute("id");
+      $lastSearchIcon.removeAttribute("id");
+      $searchText.removeAttribute("id");
+      $searchUser.removeAttribute("id");
+      $searchTitle.removeAttribute("id");
+
+      closeFullscreen();
+
+      $lastSearchIconContainer.removeEventListener("click", whenCloseFullScreen);
+
+      $lastSearchIconContainer.addEventListener("click", makeAGifFullScreen);
+    };
+
+    $lastSearchIconContainer.addEventListener("click", makeAGifFullScreen);
+
     // eslint-disable-next-line no-loop-func
     const putItemInFavorites = () => {
       $firstSearchIcon.style = `background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart-full.svg");`;
