@@ -96,4 +96,73 @@ for (let i = 0; i < theFavorites.length; i += 1) {
 
     localStorage.setItem("favorites", JSON.stringify(theFavorites));
   });
+
+  // eslint-disable-next-line no-inner-declarations
+  function openFullscreen() {
+    if ($favoritesItem.requestFullscreen) {
+      $favoritesItem.requestFullscreen();
+    } else if ($favoritesItem.webkitRequestFullscreen) {
+      $favoritesItem.webkitRequestFullscreen();
+    } else if ($favoritesItem.msRequestFullscreen) {
+      $favoritesItem.msRequestFullscreen();
+    }
+  }
+
+  // eslint-disable-next-line no-inner-declarations
+  function closeFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  }
+
+  const makeAGifFullScreen = () => {
+    $favoritesItem.id = "mainDiv";
+    $favoritesGif.id = "theGif--";
+    $favoritesBg.id = "theHoverDiv--";
+    $favoritesIcons.id = "sliderICons--";
+    $favoritesFirstIconContainer.id = "iconsContainers1--";
+    $favoritesSecondIconContainer.id = "iconsContainers2--";
+    $favoritesLastIconContainer.id = "iconsContainers3--";
+    $favoritesFirstIcon.id = "firstIcon--";
+    $favoritesSecondIcon.id = "secondIcon--";
+    $favoritesLastIcon.id = "lastIcon--";
+    $favoritesText.id = "textContainer--";
+    $favoritesUser.id = "textUser--";
+    $favoritesTitle.id = "textTitle--";
+
+    openFullscreen();
+
+    $favoritesLastIconContainer.removeEventListener("click", makeAGifFullScreen);
+
+    // eslint-disable-next-line no-use-before-define
+    $favoritesLastIconContainer.addEventListener("click", whenCloseFullScreen);
+  };
+
+  const whenCloseFullScreen = () => {
+    $favoritesItem.removeAttribute("id");
+    $favoritesGif.removeAttribute("id");
+    $favoritesBg.removeAttribute("id");
+    $favoritesIcons.removeAttribute("id");
+    $favoritesFirstIconContainer.removeAttribute("id");
+    $favoritesSecondIconContainer.removeAttribute("id");
+    $favoritesLastIconContainer.removeAttribute("id");
+    $favoritesFirstIcon.removeAttribute("id"); // Ponerle el corazón full
+    $favoritesSecondIcon.removeAttribute("id");
+    $favoritesLastIcon.removeAttribute("id");
+    $favoritesText.removeAttribute("id"); // right: 10%;
+    $favoritesUser.removeAttribute("id"); // margin-right: 202px;
+    $favoritesTitle.removeAttribute("id");
+
+    closeFullscreen();
+
+    $favoritesLastIconContainer.removeEventListener("click", whenCloseFullScreen);
+
+    $favoritesLastIconContainer.addEventListener("click", makeAGifFullScreen);
+  };
+
+  $favoritesLastIconContainer.addEventListener("click", makeAGifFullScreen);
 }

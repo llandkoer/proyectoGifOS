@@ -84,4 +84,73 @@ for (let i = 0; i < theGifos.length; i += 1) {
 
     localStorage.setItem("myGifos", JSON.stringify(theGifos));
   });
+
+  // eslint-disable-next-line no-inner-declarations
+  function openFullscreen() {
+    if ($myGifosItem.requestFullscreen) {
+      $myGifosItem.requestFullscreen();
+    } else if ($myGifosItem.webkitRequestFullscreen) {
+      $myGifosItem.webkitRequestFullscreen();
+    } else if ($myGifosItem.msRequestFullscreen) {
+      $myGifosItem.msRequestFullscreen();
+    }
+  }
+
+  // eslint-disable-next-line no-inner-declarations
+  function closeFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  }
+
+  const makeAGifFullScreen = () => {
+    $myGifosItem.id = "mainDiv";
+    $myGifosGif.id = "theGif--";
+    $myGifosBg.id = "theHoverDiv--";
+    $myGifosIcons.id = "sliderICons--";
+    $myGifoFirstIconContainer.id = "iconsContainers1--";
+    $myGifoSecondIconContainer.id = "iconsContainers2--";
+    $myGifoLastIconContainer.id = "iconsContainers3--";
+    $myGifoFirstIcon.id = "firstIcon--";
+    $myGifoSecondIcon.id = "secondIcon--";
+    $myGifoLastIcon.id = "lastIcon--";
+    $myGifosText.id = "textContainer--";
+    $myGifosUser.id = "textUser--";
+    $myGifosTitle.id = "textTitle--";
+
+    openFullscreen();
+
+    $myGifoLastIconContainer.removeEventListener("click", makeAGifFullScreen);
+
+    // eslint-disable-next-line no-use-before-define
+    $myGifoLastIconContainer.addEventListener("click", whenCloseFullScreen);
+  };
+
+  const whenCloseFullScreen = () => {
+    $myGifosItem.removeAttribute("id");
+    $myGifosGif.removeAttribute("id");
+    $myGifosBg.removeAttribute("id");
+    $myGifosIcons.removeAttribute("id");
+    $myGifoFirstIconContainer.removeAttribute("id");
+    $myGifoSecondIconContainer.removeAttribute("id");
+    $myGifoLastIconContainer.removeAttribute("id");
+    $myGifoFirstIcon.removeAttribute("id"); // Ponerle el corazón full
+    $myGifoSecondIcon.removeAttribute("id");
+    $myGifoLastIcon.removeAttribute("id");
+    $myGifosText.removeAttribute("id"); // right: 10%;
+    $myGifosUser.removeAttribute("id"); // margin-right: 202px;
+    $myGifosTitle.removeAttribute("id");
+
+    closeFullscreen();
+
+    $myGifoLastIconContainer.removeEventListener("click", whenCloseFullScreen);
+
+    $myGifoLastIconContainer.addEventListener("click", makeAGifFullScreen);
+  };
+
+  $myGifoLastIconContainer.addEventListener("click", makeAGifFullScreen);
 }
