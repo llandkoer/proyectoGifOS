@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const $sliderContainer = document.querySelector(".slider__container");
 
 const API_KEY = "hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD";
@@ -96,6 +97,73 @@ async function getTrendings(url) {
     $sliderTitle.className = "slider__title";
     $sliderTitle.textContent = element.title;
     $sliderText.appendChild($sliderTitle);
+
+    function openFullscreen() {
+      if ($sliderItem.requestFullscreen) {
+        $sliderItem.requestFullscreen();
+      } else if ($sliderItem.webkitRequestFullscreen) {
+        $sliderItem.webkitRequestFullscreen();
+      } else if ($sliderItem.msRequestFullscreen) {
+        $sliderItem.msRequestFullscreen();
+      }
+    }
+
+    function closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    }
+
+    const makeAGifFullScreen = () => {
+      $sliderItem.id = "mainDiv";
+      $gif.id = "theGif--";
+      $sliderHover.id = "theHoverDiv--";
+      $sliderIcons.id = "sliderICons--";
+      $firstIconContainer.id = "iconsContainers1--";
+      $secondIconContainer.id = "iconsContainers2--";
+      $lastIconContainer.id = "iconsContainers3--";
+      $firstIcon.id = "firstIcon--";
+      $secondIcon.id = "secondIcon--";
+      $lastIcon.id = "lastIcon--";
+      $sliderText.id = "textContainer--";
+      $sliderParagraph.id = "textUser--";
+      $sliderTitle.id = "textTitle--";
+
+      openFullscreen();
+
+      $lastIconContainer.removeEventListener("click", makeAGifFullScreen);
+
+      // eslint-disable-next-line no-use-before-define
+      $lastIconContainer.addEventListener("click", whenCloseFullScreen);
+    };
+
+    const whenCloseFullScreen = () => {
+      $sliderItem.removeAttribute("id");
+      $gif.removeAttribute("id");
+      $sliderHover.removeAttribute("id");
+      $sliderIcons.removeAttribute("id");
+      $firstIconContainer.removeAttribute("id");
+      $secondIconContainer.removeAttribute("id");
+      $lastIconContainer.removeAttribute("id");
+      $firstIcon.removeAttribute("id");
+      $secondIcon.removeAttribute("id");
+      $lastIcon.removeAttribute("id");
+      $sliderText.removeAttribute("id");
+      $sliderParagraph.removeAttribute("id");
+      $sliderTitle.removeAttribute("id");
+
+      closeFullscreen();
+
+      $lastIconContainer.removeEventListener("click", whenCloseFullScreen);
+
+      $lastIconContainer.addEventListener("click", makeAGifFullScreen);
+    };
+
+    $lastIconContainer.addEventListener("click", makeAGifFullScreen);
 
     const addToFavorites = () => {
       $firstIcon.style = `background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart-full.svg");`;
