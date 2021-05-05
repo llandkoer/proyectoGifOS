@@ -41,6 +41,20 @@ for (let i = 0; i < theFavorites.length; i += 1) {
   $favoritesSecondIcon.className = "favorites__icon--second";
   $favoritesSecondIconContainer.appendChild($favoritesSecondIcon);
 
+  const downloadGif = async () => {
+    const myGif = await fetch(`https://media.giphy.com/media/${theFavorites[i].id}/giphy.gif`);
+    const file = await myGif.blob();
+    const urlBlob = URL.createObjectURL(file);
+    const $aTag = document.createElement("a");
+    $aTag.download = `${theFavorites[i].title}.gif`;
+    $aTag.href = urlBlob;
+    $aTag.click();
+  };
+
+  $favoritesSecondIconContainer.addEventListener("click", () => {
+    downloadGif();
+  });
+
   const $favoritesLastIconContainer = document.createElement("div");
   $favoritesLastIconContainer.className = "favorites__icon-container";
   $favoritesIcons.appendChild($favoritesLastIconContainer);

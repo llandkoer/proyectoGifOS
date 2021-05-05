@@ -146,7 +146,7 @@ async function getMyGif() {
     });
 
     const downloadGif = async () => {
-      const myGif = await fetch("https://media.giphy.com/media/V6BTj0jsJsfCiincY9/giphy.gif");
+      const myGif = await fetch(`https://media.giphy.com/media/${gifID}/giphy.gif`);
       const file = await myGif.blob();
       const urlBlob = URL.createObjectURL(file);
       const $aTag = document.createElement("a");

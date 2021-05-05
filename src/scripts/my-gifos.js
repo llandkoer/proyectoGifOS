@@ -36,6 +36,20 @@ for (let i = 0; i < theGifos.length; i += 1) {
   $myGifoSecondIcon.className = "MisGifos__icon--second";
   $myGifoSecondIconContainer.appendChild($myGifoSecondIcon);
 
+  const downloadGif = async () => {
+    const myGif = await fetch(`https://media.giphy.com/media/${theGifos[i].id}/giphy.gif`);
+    const file = await myGif.blob();
+    const urlBlob = URL.createObjectURL(file);
+    const $aTag = document.createElement("a");
+    $aTag.download = "mi-gifo.gif";
+    $aTag.href = urlBlob;
+    $aTag.click();
+  };
+
+  $myGifoSecondIconContainer.addEventListener("click", () => {
+    downloadGif();
+  });
+
   const $myGifoLastIconContainer = document.createElement("div");
   $myGifoLastIconContainer.className = "MisGifos__icon-container";
   $myGifosIcons.appendChild($myGifoLastIconContainer);

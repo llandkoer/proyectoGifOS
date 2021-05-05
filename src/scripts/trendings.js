@@ -58,6 +58,20 @@ async function getTrendings(url) {
     $secondIcon.className = "slider__icon--second";
     $secondIconContainer.appendChild($secondIcon);
 
+    const downloadGif = async () => {
+      const myGif = await fetch(`https://media.giphy.com/media/${element.id}/giphy.gif`);
+      const file = await myGif.blob();
+      const urlBlob = URL.createObjectURL(file);
+      const $aTag = document.createElement("a");
+      $aTag.download = `${element.title}.gif`;
+      $aTag.href = urlBlob;
+      $aTag.click();
+    };
+
+    $secondIconContainer.addEventListener("click", () => {
+      downloadGif();
+    });
+
     const $lastIconContainer = document.createElement("div");
     $lastIconContainer.className = "slider__icon-container";
     $sliderIcons.appendChild($lastIconContainer);

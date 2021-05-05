@@ -68,6 +68,21 @@ function displayCategories() {
     $secondSearchIcon.className = "found-gifs__second-icon";
     $secondSearchIconContainer.appendChild($secondSearchIcon);
 
+    // eslint-disable-next-line no-loop-func
+    const downloadGif = async () => {
+      const myGif = await fetch(`https://media.giphy.com/media/${gifsCategories[j].gif.id}/giphy.gif`);
+      const file = await myGif.blob();
+      const urlBlob = URL.createObjectURL(file);
+      const $aTag = document.createElement("a");
+      $aTag.download = `${gifsCategories[j].gif.title}.gif`;
+      $aTag.href = urlBlob;
+      $aTag.click();
+    };
+
+    $secondSearchIconContainer.addEventListener("click", () => {
+      downloadGif();
+    });
+
     const $lastSearchIconContainer = document.createElement("div");
     $lastSearchIconContainer.className = "found-gifs__icon-container";
     $searchIcons.appendChild($lastSearchIconContainer);
