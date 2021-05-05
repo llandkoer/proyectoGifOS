@@ -36,8 +36,6 @@ const saveOnLocalStorage = () => {
   const uniques = [...itemsMapArr.values()];
 
   localStorage.setItem("myGifos", JSON.stringify(uniques));
-  // localStorage.setItem("myGifos", JSON.stringify(allMyGifos));
-  // $header.removeEventListener("click", saveOnLocalStorage);
 };
 
 $header.addEventListener("click", saveOnLocalStorage);
@@ -60,9 +58,7 @@ function timePaused() {
 }
 
 const actionBtnStartRecord = () => {
-  // eslint-disable-next-line no-use-before-define
   captureCamera((stream) => {
-    // eslint-disable-next-line no-undef
     recorder = RecordRTC(stream, {
       type: "gif",
       frameRate: 1,
@@ -70,7 +66,6 @@ const actionBtnStartRecord = () => {
       width: 360,
       hidden: 240,
       onGifRecordingStarted() {
-        // eslint-disable-next-line no-console
         console.log("started");
       },
     });
@@ -91,7 +86,6 @@ async function postData() {
     const json = await res.json();
     gifID = json.data.id;
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.log(error);
   }
 }
@@ -141,7 +135,6 @@ async function getMyGif() {
       el.select();
       document.execCommand("copy");
       document.body.removeChild(el);
-      // eslint-disable-next-line no-console
       console.log("URL is already copied to the clipboard");
     });
 
@@ -161,7 +154,6 @@ async function getMyGif() {
       downloadGif();
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.log(error);
   }
 }
@@ -195,12 +187,10 @@ const actionBtnStartRecord3 = () => {
   timer.textContent = "Repetir captura";
   timer.style = "border-bottom: 4px solid #50E3C2; font-size: 1.3rem; cursor:pointer;";
   timePaused();
-  // eslint-disable-next-line no-use-before-define
   btnStartRecord.removeEventListener("click", actionBtnStartRecord3);
   btnStartRecord.addEventListener("click", actionBtnStartRecord4);
   recorder.stopRecording(() => {
     form.append("file", recorder.getBlob(), "myGif.gif");
-    // eslint-disable-next-line no-console
     console.log(form.get("file"));
   });
 
@@ -248,7 +238,6 @@ const captureCamera = (callback) => {
       btnStartRecord.addEventListener("click", actionBtnStartRecord2);
     })
     .catch(() => {
-      // eslint-disable-next-line no-alert
       alert(
         "Necesitamos acceso para poder funcionar. Si cambias de opinión, puedes darnos acceso a tu cámara en el ícono ubicado al inicio de la barra de navegación"
       );

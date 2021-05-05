@@ -21,10 +21,8 @@ const THE_API_KEY = "hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD";
 document.querySelector("#favorites").onclick = () => {
   if (localStorage.getItem("favorites")) {
     const alreadySavedItems = JSON.parse(localStorage.getItem("favorites"));
-    // eslint-disable-next-line no-undef
     allFavorites.push(...alreadySavedItems);
   }
-  // eslint-disable-next-line no-undef
   localStorage.setItem("favorites", JSON.stringify(allFavorites));
 };
 
@@ -68,7 +66,6 @@ function displayCategories() {
     $secondSearchIcon.className = "found-gifs__second-icon";
     $secondSearchIconContainer.appendChild($secondSearchIcon);
 
-    // eslint-disable-next-line no-loop-func
     const downloadGif = async () => {
       const myGif = await fetch(`https://media.giphy.com/media/${gifsCategories[j].gif.id}/giphy.gif`);
       const file = await myGif.blob();
@@ -116,7 +113,6 @@ function displayCategories() {
       $showMore2.style = "display: none";
     }
 
-    // eslint-disable-next-line no-inner-declarations
     function openFullscreen() {
       if ($gifContainer.requestFullscreen) {
         $gifContainer.requestFullscreen();
@@ -127,7 +123,6 @@ function displayCategories() {
       }
     }
 
-    // eslint-disable-next-line no-inner-declarations
     function closeFullscreen() {
       if (document.exitFullscreen) {
         document.exitFullscreen();
@@ -157,7 +152,6 @@ function displayCategories() {
 
       $lastSearchIconContainer.removeEventListener("click", makeAGifFullScreen);
 
-      // eslint-disable-next-line no-use-before-define
       $lastSearchIconContainer.addEventListener("click", whenCloseFullScreen);
     };
 
@@ -185,32 +179,23 @@ function displayCategories() {
 
     $lastSearchIconContainer.addEventListener("click", makeAGifFullScreen);
 
-    // eslint-disable-next-line no-loop-func
     const putItemInFavorites = () => {
       $firstSearchIcon.style = `background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart-full.svg");`;
 
-      // eslint-disable-next-line no-undef
       allFavorites.push(gifsCategories[j].gif);
-      // localStorage.setItem(`favorite${i}`, JSON.stringify(gifs[i]));
 
       $firstSearchIconContainer.removeEventListener("click", putItemInFavorites);
-      // eslint-disable-next-line no-use-before-define
       $firstSearchIconContainer.addEventListener("click", removeItemFromFavorites);
     };
 
-    // eslint-disable-next-line no-loop-func
     const removeItemFromFavorites = () => {
       $firstSearchIcon.style = `background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart.svg");`;
 
-      // eslint-disable-next-line no-undef
       if (allFavorites.includes(gifsCategories[j].gif)) {
-        // eslint-disable-next-line no-undef
         allFavorites.pop(gifsCategories[j].gif);
       }
 
-      // eslint-disable-next-line no-undef
       $firstSearchIconContainer.removeEventListener("click", removeItemFromFavorites);
-      // eslint-disable-next-line no-undef
       $firstSearchIconContainer.addEventListener("click", putItemInFavorites);
     };
 
@@ -227,7 +212,6 @@ async function getCategories(url) {
     gifsCategories = json.data;
     displayCategories();
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.log(error);
   }
 }

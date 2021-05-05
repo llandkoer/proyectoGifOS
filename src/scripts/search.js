@@ -63,7 +63,6 @@ function displaySearch() {
     $secondSearchIcon.className = "found-gifs__second-icon";
     $secondSearchIconContainer.appendChild($secondSearchIcon);
 
-    // eslint-disable-next-line no-loop-func
     const downloadGif = async () => {
       const myGif = await fetch(`https://media.giphy.com/media/${gifs[i].id}/giphy.gif`);
       const file = await myGif.blob();
@@ -110,7 +109,6 @@ function displaySearch() {
       $showMore.style = "display: none";
     }
 
-    // eslint-disable-next-line no-inner-declarations
     function openFullscreen() {
       if ($gifContainer.requestFullscreen) {
         $gifContainer.requestFullscreen();
@@ -121,7 +119,6 @@ function displaySearch() {
       }
     }
 
-    // eslint-disable-next-line no-inner-declarations
     function closeFullscreen() {
       if (document.exitFullscreen) {
         document.exitFullscreen();
@@ -151,7 +148,6 @@ function displaySearch() {
 
       $lastSearchIconContainer.removeEventListener("click", makeAGifFullScreen);
 
-      // eslint-disable-next-line no-use-before-define
       $lastSearchIconContainer.addEventListener("click", whenCloseFullScreen);
     };
 
@@ -179,19 +175,15 @@ function displaySearch() {
 
     $lastSearchIconContainer.addEventListener("click", makeAGifFullScreen);
 
-    // eslint-disable-next-line no-loop-func
     const putItemInFavorites = () => {
       $firstSearchIcon.style = `background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart-full.svg");`;
 
       allFavorites.push(gifs[i]);
-      // localStorage.setItem(`favorite${i}`, JSON.stringify(gifs[i]));
 
       $firstSearchIconContainer.removeEventListener("click", putItemInFavorites);
-      // eslint-disable-next-line no-use-before-define
       $firstSearchIconContainer.addEventListener("click", removeItemFromFavorites);
     };
 
-    // eslint-disable-next-line no-loop-func
     const removeItemFromFavorites = () => {
       $firstSearchIcon.style = `background-image: url("https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-heart.svg");`;
 
@@ -199,9 +191,7 @@ function displaySearch() {
         allFavorites.pop(gifs[i]);
       }
 
-      // eslint-disable-next-line no-undef
       $firstSearchIconContainer.removeEventListener("click", removeItemFromFavorites);
-      // eslint-disable-next-line no-undef
       $firstSearchIconContainer.addEventListener("click", putItemInFavorites);
     };
 
@@ -218,7 +208,6 @@ async function getSearch(url) {
     gifs = json.data;
     displaySearch();
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error(error);
   }
 }
@@ -272,7 +261,6 @@ async function getSuggestions(url) {
     const theJson = await respon.json();
     suggestions = theJson.data;
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error(error);
   }
 }
@@ -314,7 +302,6 @@ async function createListItems() {
       $listItem.appendChild($suggestion);
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error(error);
   }
 }

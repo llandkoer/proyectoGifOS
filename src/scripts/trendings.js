@@ -137,7 +137,6 @@ async function getTrendings(url) {
 
       $lastIconContainer.removeEventListener("click", makeAGifFullScreen);
 
-      // eslint-disable-next-line no-use-before-define
       $lastIconContainer.addEventListener("click", whenCloseFullScreen);
     };
 
@@ -170,9 +169,7 @@ async function getTrendings(url) {
 
       favoritesArray.push(element);
 
-      // eslint-disable-next-line no-unused-vars
       $firstIconContainer.removeEventListener("click", addToFavorites);
-      // eslint-disable-next-line no-use-before-define
       $firstIconContainer.addEventListener("click", removeFromFavorites);
     };
 
@@ -183,9 +180,7 @@ async function getTrendings(url) {
         favoritesArray.pop(element);
       }
 
-      // eslint-disable-next-line no-undef
       $firstIconContainer.removeEventListener("click", removeFromFavorites);
-      // eslint-disable-next-line no-undef
       $firstIconContainer.addEventListener("click", addToFavorites);
     };
 

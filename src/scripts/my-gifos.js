@@ -74,7 +74,6 @@ for (let i = 0; i < theGifos.length; i += 1) {
   $myGifoFirstIconContainer.addEventListener("click", () => {
     $myGifosContainer.removeChild($myGifosItem);
 
-    // eslint-disable-next-line max-len
     const itemToDelete = theGifos.find((item) => item.images.original.url === theGifos[i].images.original.url);
 
     const arrayIndex = theGifos.indexOf(itemToDelete);
@@ -85,7 +84,6 @@ for (let i = 0; i < theGifos.length; i += 1) {
     localStorage.setItem("myGifos", JSON.stringify(theGifos));
   });
 
-  // eslint-disable-next-line no-inner-declarations
   function openFullscreen() {
     if ($myGifosItem.requestFullscreen) {
       $myGifosItem.requestFullscreen();
@@ -96,7 +94,6 @@ for (let i = 0; i < theGifos.length; i += 1) {
     }
   }
 
-  // eslint-disable-next-line no-inner-declarations
   function closeFullscreen() {
     if (document.exitFullscreen) {
       document.exitFullscreen();
@@ -126,7 +123,6 @@ for (let i = 0; i < theGifos.length; i += 1) {
 
     $myGifoLastIconContainer.removeEventListener("click", makeAGifFullScreen);
 
-    // eslint-disable-next-line no-use-before-define
     $myGifoLastIconContainer.addEventListener("click", whenCloseFullScreen);
   };
 
@@ -138,11 +134,11 @@ for (let i = 0; i < theGifos.length; i += 1) {
     $myGifoFirstIconContainer.removeAttribute("id");
     $myGifoSecondIconContainer.removeAttribute("id");
     $myGifoLastIconContainer.removeAttribute("id");
-    $myGifoFirstIcon.removeAttribute("id"); // Ponerle el corazón full
+    $myGifoFirstIcon.removeAttribute("id");
     $myGifoSecondIcon.removeAttribute("id");
     $myGifoLastIcon.removeAttribute("id");
-    $myGifosText.removeAttribute("id"); // right: 10%;
-    $myGifosUser.removeAttribute("id"); // margin-right: 202px;
+    $myGifosText.removeAttribute("id");
+    $myGifosUser.removeAttribute("id");
     $myGifosTitle.removeAttribute("id");
 
     closeFullscreen();

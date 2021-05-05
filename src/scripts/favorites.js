@@ -97,7 +97,6 @@ for (let i = 0; i < theFavorites.length; i += 1) {
     localStorage.setItem("favorites", JSON.stringify(theFavorites));
   });
 
-  // eslint-disable-next-line no-inner-declarations
   function openFullscreen() {
     if ($favoritesItem.requestFullscreen) {
       $favoritesItem.requestFullscreen();
@@ -108,7 +107,6 @@ for (let i = 0; i < theFavorites.length; i += 1) {
     }
   }
 
-  // eslint-disable-next-line no-inner-declarations
   function closeFullscreen() {
     if (document.exitFullscreen) {
       document.exitFullscreen();
@@ -138,7 +136,6 @@ for (let i = 0; i < theFavorites.length; i += 1) {
 
     $favoritesLastIconContainer.removeEventListener("click", makeAGifFullScreen);
 
-    // eslint-disable-next-line no-use-before-define
     $favoritesLastIconContainer.addEventListener("click", whenCloseFullScreen);
   };
 
@@ -150,11 +147,11 @@ for (let i = 0; i < theFavorites.length; i += 1) {
     $favoritesFirstIconContainer.removeAttribute("id");
     $favoritesSecondIconContainer.removeAttribute("id");
     $favoritesLastIconContainer.removeAttribute("id");
-    $favoritesFirstIcon.removeAttribute("id"); // Ponerle el corazón full
+    $favoritesFirstIcon.removeAttribute("id");
     $favoritesSecondIcon.removeAttribute("id");
     $favoritesLastIcon.removeAttribute("id");
-    $favoritesText.removeAttribute("id"); // right: 10%;
-    $favoritesUser.removeAttribute("id"); // margin-right: 202px;
+    $favoritesText.removeAttribute("id");
+    $favoritesUser.removeAttribute("id");
     $favoritesTitle.removeAttribute("id");
 
     closeFullscreen();
