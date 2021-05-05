@@ -29,7 +29,7 @@ btnSwitch.addEventListener("click", () => {
       movie.src = "https://raw.githubusercontent.com/llandkoer/proyectoGifOS/3f5c9538f2f319958c4345a01c7d5ab1ad4638ae/src/assets/illustration-movie.svg";
     }
 
-    logo.src = "https://raw.githubusercontent.com/llandkoer/proyectoGifOS/3f5c9538f2f319958c4345a01c7d5ab1ad4638ae/src/assets/logo-dark-mode.svg";
+    logo.src = "https://raw.githubusercontent.com/llandkoer/proyectoGifOS/3f5c9538f2f319958c4345a01c7d5ab1ad4638ae/src/assets/logo.svg";
   }
 });
 
