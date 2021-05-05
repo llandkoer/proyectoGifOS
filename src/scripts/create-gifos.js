@@ -141,6 +141,24 @@ async function getMyGif() {
       el.select();
       document.execCommand("copy");
       document.body.removeChild(el);
+      // eslint-disable-next-line no-console
+      console.log("URL is already copied to the clipboard");
+    });
+
+    const downloadGif = async () => {
+      const myGif = await fetch("https://media.giphy.com/media/V6BTj0jsJsfCiincY9/giphy.gif");
+      const file = await myGif.blob();
+      const urlBlob = URL.createObjectURL(file);
+      const $aTag = document.createElement("a");
+      $aTag.download = "myGif.gif";
+      $aTag.href = urlBlob;
+      $aTag.click();
+    };
+
+    downloadContainer.addEventListener("click", () => {
+      linkContainer.style = "opacity: 1;";
+
+      downloadGif();
     });
   } catch (error) {
     // eslint-disable-next-line no-console
