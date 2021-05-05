@@ -4,19 +4,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="robots" content="index,follow" />
-    <link rel="shortcut icon" href="../src/assets/logo-dark-mode.svg" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="../src/assets/logo-dark-mode.svg"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./styles/styles.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>GifOS</title>
   </head>
-
   <body>
     <header class="header">
       <div class="header__container--purple"></div>
       <div class="header__container--flex" id="header">
-        <a href="./index.html"><img id="logo" src="../src/assets/logo.svg" alt="Logo de GifOS" /></a>
+        <a href="./index.html"
+          ><img id="logo" src="../src/assets/logo.svg" alt="Logo de GifOS"
+        /></a>
         <nav class="header__nav">
           <div class="header__menu">
             <input class="header__input" type="checkbox" />
@@ -27,11 +38,11 @@
                 <div class="header__divider"></div>
               </li>
               <li class="header__item">
-                <a class="header__link" href="./favorites.html">Favoritos</a>
+                <a class="header__link" href="#" style="color: #9CAFC3;">Favoritos</a>
                 <div class="header__divider"></div>
               </li>
               <li class="header__item">
-                <a class="header__link" href="#" style="color: #9cafc3">Mis GIFOS</a>
+                <a class="header__link" href="./MisGifos.html">Mis GIFOS</a>
                 <div class="header__divider"></div>
               </li>
               <li class="header__item">
@@ -48,15 +59,14 @@
     </header>
 
     <main>
-      <section class="MisGifos">
+      <section class="favorites">
         <img
-          class="MisGifos__icon"
-          src="https://raw.githubusercontent.com/llandkoer/proyectoGifOS/13964bfe2de43b5efc79bb3e6e83bb3ff3b0f619/src/assets/icon-face.svg"
+          class="favorites__icon"
+          src="../src/assets/icon-favorites.svg"
           alt="Icono de un rostro"
         />
-        <h2 class="MisGifos__h2">Mis GIFOS</h2>
-        <div class="MisGifos__father">
-        </div>
+        <h2 class="favorites__h2">Favoritos</h2>
+        <div class="favorites__father"></div>
       </section>
 
       <section class="slider">
@@ -72,25 +82,34 @@
         </div>
       </section>
     </main>
+    </main>
 
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__social-media">
           <span class="footer__text-share">Compartir en:</span>
           <div class="footer__icons">
-            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/"
+                target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
             <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/"
+            target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
           </div>
         </div>
         <div class="footer__copyright">
-          <span class="footer__text-copyright">© GIFOS 2020 All Rights Reserved.</span>
+          <span class="footer__text-copyright"
+            >© GIFOS 2020 All Rights Reserved.</span
+          >
         </div>
       </div>
       <div class="footer__purple-line"></div>
     </footer>
-    <script src="../src/scripts/dark-mode.js"></script>
-    <script src="../src/scripts/my-gifos.js"></script>
-    <script src="../src/scripts/trendings.js"></script>
+    <script src="./scripts/dark-mode.js"></script>
+    <script src="./scripts/favorites.js"></script>
+    <script src="./scripts/trendings.js"></script>
   </body>
 </html>
