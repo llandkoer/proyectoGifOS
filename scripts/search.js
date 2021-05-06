@@ -8,6 +8,11 @@ $buttonParent.appendChild($showMore);
 const $searchContainer = document.querySelector(".found-gifs__grid");
 const $keywordText = document.querySelector(".found-gifs__keyword");
 
+const $buttonClean = document.createElement("button");
+document.querySelector(".container-search-gifos").appendChild($buttonClean);
+$buttonClean.style = "display: none;";
+const $iconClean = document.createElement("i");
+
 const MY_API_KEY = "hHX3bZ1xLpCNgZZtcHmUuvAlBCvDuBtD";
 
 const allFavorites = [];
@@ -309,9 +314,28 @@ async function createListItems() {
 $inputSearcher.addEventListener("keyup", () => {
   if ($inputSearcher.value !== "") {
     $list.innerHTML = "";
+    $iconSearch.style = "right: unset; left: -3px;";
+    $buttonClean.className = "button-search";
+    $buttonClean.style = "width: auto; height: auto;";
+    $buttonClean.style = "display: block";
+
+    const cleanInputContent = () => {
+      $breaker.style = "display: none;";
+      $list.style = "display: none;";
+      $inputSearcher.value = "";
+      $iconSearch.style = "";
+      $buttonClean.style = "display: none";
+    };
+
+    $buttonClean.addEventListener("click", cleanInputContent);
+
+    $iconClean.classList.add("search-icon", "fas", "fa-times");
+    $buttonClean.appendChild($iconClean);
     createListItems();
   } else {
     $breaker.style = "display: none;";
     $list.style = "display: none;";
+    $iconSearch.style = "";
+    $buttonClean.style = "display: none";
   }
 });
